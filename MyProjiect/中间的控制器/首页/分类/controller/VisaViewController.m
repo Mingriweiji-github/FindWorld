@@ -359,6 +359,7 @@
                      
                      NSDictionary *data = result[@"data"];
                      
+                   
                      NSArray *type = [data objectForKey:@"type"];
                      NSArray *departure = [data objectForKey:@"departure"];
                      NSArray *times_drange=[data objectForKey:@"times_drange"];
@@ -372,6 +373,7 @@
                      //                     NSMutableArray *detailArr=[NSMutableArray array];
                      for (NSDictionary *dic in type) {
                          
+                         NSLog(@"dic :%@",dic);
                          TypeModel *model=[[TypeModel alloc] initContentWithDic:dic];
                          
                          [mArr addObject:model];

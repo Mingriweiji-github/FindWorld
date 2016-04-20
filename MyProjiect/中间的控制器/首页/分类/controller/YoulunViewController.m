@@ -59,6 +59,12 @@
     
     
     [self _requestThisPage];
+    
+    //type数据请求
+    [self typeDataRequest];
+    
+    //初始化tabelView
+    [self _iniTabelViews];
 
 }
 
