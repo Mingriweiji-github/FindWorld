@@ -1,0 +1,43 @@
+//
+//  qiongyou.pch
+//  MyProjiect
+//
+//  Created by imac on 15/9/26.
+//  Copyright (c) 2015年 imac. All rights reserved.
+//
+
+#ifndef MyProjiect_qiongyou_pch
+#define MyProjiect_qiongyou_pch
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+// 获取设备屏幕的物理尺寸
+#define kScreenHeight [UIScreen mainScreen].bounds.size.height
+#define kScreenWidth [UIScreen mainScreen].bounds.size.width
+
+#import "UIViewExt.h"
+#import "UIViewController+MMDrawerController.h"
+#import "UIView+ViewController.h" 
+#import "AFNetworking.h"
+#import "DataService.h"
+#import "UIImageView+WebCache.h"
+#import "WebViewController.h"
+#import "CycleScrollView.h"
+//机票,酒店
+#define app_lastminute_list  @"http://open.qyer.com/lastminute/app_lastminute_list"
+
+
+//所有的type,目的地，出发地
+#define get_all_categorys @"http://open.qyer.com/lastminute/get_all_categorys"
+
+//本地解析json
+#import "LocalDataRequest.h"
+//网络请求数据
+#import "WebDataService.h"
+//第三页面网络数据--精选
+#define  get_play_and_fun @"http://open.qyer.com/lastminute/get_play_and_fun"
+//台湾
+#define get_list_by_id_vtwo @"http://open.qyer.com/lastminute/get_list_by_id_vtwo"
+
+#endif
