@@ -22,16 +22,23 @@
     
     //二级界面的返回按钮
     backBtn=[UIButton buttonWithType:UIButtonTypeCustom];
+    UIImage *img = [UIImage imageNamed:@"back-icon.png"];
     
-    backBtn.frame=CGRectMake(10, 10, 35, 30);
-    [backBtn setBackgroundImage:[UIImage imageNamed:@"back_pic.jpg"] forState:UIControlStateNormal];
+    UIGraphicsBeginImageContext(CGSizeMake(12*KWidth_Scale, 18*KWidth_Scale));
+    [img drawInRect:CGRectMake(0, 0, 12 * KWidth_Scale, 18 * KWidth_Scale)];
+    
+    img = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    backBtn.frame=CGRectMake(0, 10, 12*KWidth_Scale, 18*KWidth_Scale);
+    [backBtn setBackgroundImage:img forState:UIControlStateNormal];
     [backBtn addTarget:self action:@selector(backBtnClick:) forControlEvents:UIControlEventTouchUpInside];
-    backBtn.backgroundColor=[UIColor orangeColor];
+//    backBtn.backgroundColor=[UIColor orangeColor];
     backBtn.hidden = YES;
     
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:backBtn];
     
-    if (self.navigationController.viewControllers.count >= 2) {
+    if (self.navigationController.viewControllers.count >= 2) {//返回按钮显示条件
 
         backBtn.hidden = NO;
 

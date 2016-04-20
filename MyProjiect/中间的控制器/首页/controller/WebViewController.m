@@ -22,7 +22,7 @@
     //加载webView;
     
     
-    self.webView=[[UIWebView alloc] initWithFrame:self.view.bounds];
+    self.webView=[[UIWebView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight - 20*KWidth_Scale)];
     [self.view addSubview:_webView];
     _webView.delegate=self;
 

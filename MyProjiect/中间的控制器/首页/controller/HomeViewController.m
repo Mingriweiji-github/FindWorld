@@ -55,7 +55,7 @@
 - (void)_inittabelViews
 {
     
-    _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight) style:UITableViewStyleGrouped];
+    _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight -20) style:UITableViewStyleGrouped];
     _tableView.delegate=self;
     _tableView.dataSource=self;
     //初始化头部视图

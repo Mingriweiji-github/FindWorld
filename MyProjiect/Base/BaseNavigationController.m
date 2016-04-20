@@ -40,7 +40,7 @@
     UIGraphicsEndImageContext();
     
     [self.navigationBar setBackgroundImage:image forBarMetrics:UIBarMetricsDefault];
-    
+                                                                                                                                                                                                                                  
     
     UIButton *status = [[UIButton alloc]
                       initWithFrame:CGRectMake(0, -20, kScreenWidth, 20)];

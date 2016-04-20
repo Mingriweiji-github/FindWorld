@@ -15,7 +15,7 @@
 #import "CarViewController.h"
 #import "SecureViewController.h"
 #import "PhoneViewController.h"
-#import "CItyPlayViewController.h"
+//#import "CItyPlayViewController.h"
 @interface GroupViewController ()
 
 @end
@@ -49,7 +49,7 @@
         btn.backgroundColor=[UIColor clearColor];
         btn.tag=100 +i;
         [btn addTarget:self action:@selector(buttonClick:) forControlEvents:UIControlEventTouchUpInside];
-        UILabel *label=[[UILabel alloc] initWithFrame:CGRectMake(btn.left-10, btn.bottom, 100, 30)];
+        UILabel *label=[[UILabel alloc] initWithFrame:CGRectMake(btn.left-8*KWidth_Scale, btn.bottom, 100*KWidth_Scale, 30)];
         label.text=arr1[i];
         
         label.textAlignment=NSTextAlignmentCenter;
@@ -68,7 +68,7 @@
         btn.backgroundColor=[UIColor clearColor];
         btn.tag=103 +i;
         [btn addTarget:self action:@selector(buttonClick:) forControlEvents:UIControlEventTouchUpInside];
-        UILabel *label=[[UILabel alloc] initWithFrame:CGRectMake(btn.left-10, btn.bottom, 100, 30)];
+        UILabel *label=[[UILabel alloc] initWithFrame:CGRectMake(btn.left - 8*KWidth_Scale, btn.bottom, 100*KWidth_Scale, 30)];
         label.text=arr2[i];
         
         label.textAlignment=NSTextAlignmentCenter;
@@ -87,7 +87,7 @@
         btn.backgroundColor=[UIColor clearColor];
         btn.tag=106 +i;
         [btn addTarget:self action:@selector(buttonClick:) forControlEvents:UIControlEventTouchUpInside];
-        UILabel *label=[[UILabel alloc] initWithFrame:CGRectMake(btn.left-10, btn.bottom, 100, 30)];
+        UILabel *label=[[UILabel alloc] initWithFrame:CGRectMake(btn.left-8*KWidth_Scale, btn.bottom, 100*KWidth_Scale, 30)];
         label.text=arr3[i];
         
         label.textAlignment=NSTextAlignmentCenter;
@@ -150,9 +150,9 @@
         
         
     }if (index == 7) {//城市玩乐
-        CItyPlayViewController *cityVC=[[CItyPlayViewController alloc] init];
-        
-        [self.navigationController pushViewController:cityVC animated:YES];
+//        CItyPlayViewController *cityVC=[[CItyPlayViewController alloc] init];
+//        
+//        [self.navigationController pushViewController:cityVC animated:YES];
         
         
         
