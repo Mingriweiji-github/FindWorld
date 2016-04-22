@@ -30,4 +30,5 @@
 @property(nonatomic,copy)NSString *continent;
 
 @property(nonatomic,copy)NSString *titleName;
-@property(nonatomic,copy)NSString *jsonName;@end
+@property(nonatomic,copy)NSString *jsonName;
+@end

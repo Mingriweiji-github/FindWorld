@@ -138,7 +138,7 @@
     [self.view addSubview:view];
 }
 
-#pragma mark 下拉的单元格视图
+#pragma mark 下拉的单元格视图(tableView放在view上即可)
 - (void)_iniTabelViews
 {
     
@@ -579,25 +579,7 @@
             
         }
     }
-    
-    
-    //    NSString *detailName  =  cell.textLabel.text;
-    //    NSLog(@"detailName is %@",detailName);
-    //    //刷新数据
-    //    id json=[LocalDataRequest requestLocalData:detailName];
-    //    NSMutableArray *mArr=[NSMutableArray array];
-    //    NSDictionary *data=[json objectForKey:@"data"];
-    //    NSArray *lastminutes = [data objectForKey:@"lastminutes"];
-    //    for (NSDictionary *dic in lastminutes) {
-    //        TicketModel *model=[[TicketModel alloc] initContentWithDic:dic];
-    //        [mArr addObject:model];
-    //    }
-    //    _data=mArr;
-    //    [_collectionView reloadData];//刷新UI
-    //
-    //    UIButton *btn = (UIButton *)[view viewWithTag:12];
-    //    [btn setTitle:detailName forState:UIControlStateNormal];//改变button的title
-    //    [self buttonClick:btn];
+
     
     
     

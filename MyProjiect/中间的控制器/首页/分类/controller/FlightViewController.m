@@ -610,12 +610,14 @@
             NSArray *name = [nameDic objectForKey:@"country_name"];
               [mArr addObject:name];
         }
-        _detailData=mArr;
-        [_detailTableView reloadData];//刷新UI
         
         if (_detailTableView == nil) {
+            
+
             //国家详情
-            detailView = [[UIView alloc] initWithFrame:CGRectMake(kScreenWidth / 2, 0, kScreenWidth / 2, kScreenHeight -50-64)];
+            if (detailView == nil) {
+                detailView = [[UIView alloc] initWithFrame:CGRectMake(kScreenWidth / 2, 0, kScreenWidth / 2, kScreenHeight -50-64)];
+            }
             _detailTableView = [[UITableView alloc] initWithFrame:detailView.bounds style:UITableViewStylePlain];
             _detailTableView.delegate=self;
             _detailTableView.dataSource=self;
@@ -623,17 +625,26 @@
             [detailView addSubview:_detailTableView];
             
             [_destinationTabelV addSubview:detailView]; //国家view放在_destinationTabelV上
-           
             
-          
-            
+            NSLog(@"国家：%@",mArr);
+            _detailData=mArr;
 
+            [_destinationTabelV reloadData];//刷新UI
+            
+            
         }
     }
     
+    
+    if (self.detailTableView == tableView) {
+        
+        [_collectionView reloadData];//刷新UI
+        
+            destinationView.hidden=YES;
+            detailView.hidden=YES;
+    }
 
-    destinationView.hidden=YES;
-    detailView.hidden=YES;
+
     
     NSString *detailName  =  cell.textLabel.text;
     NSLog(@"detailName is %@",detailName);
@@ -691,5 +702,9 @@
     _index = indexPath.row;
 
 }
-
+- (void)creatDetailCity
+{
+    
+    
+}
 @end

@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "88E0E1CC1BB633280047CC23"
-               BuildableName = "MyProjiect.app"
-               BlueprintName = "MyProjiect"
-               ReferencedContainer = "container:MyProjiect.xcodeproj">
+               BuildableName = "FindWorld.app"
+               BlueprintName = "FindWorld"
+               ReferencedContainer = "container:FindWorld.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "88E0E1E81BB633280047CC23"
-               BuildableName = "MyProjiectTests.xctest"
-               BlueprintName = "MyProjiectTests"
-               ReferencedContainer = "container:MyProjiect.xcodeproj">
+               BuildableName = "FindWorld.xctest"
+               BlueprintName = "FindWorldTests"
+               ReferencedContainer = "container:FindWorld.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -43,9 +43,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "88E0E1CC1BB633280047CC23"
-            BuildableName = "MyProjiect.app"
-            BlueprintName = "MyProjiect"
-            ReferencedContainer = "container:MyProjiect.xcodeproj">
+            BuildableName = "FindWorld.app"
+            BlueprintName = "FindWorld"
+            ReferencedContainer = "container:FindWorld.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -66,9 +66,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "88E0E1CC1BB633280047CC23"
-            BuildableName = "MyProjiect.app"
-            BlueprintName = "MyProjiect"
-            ReferencedContainer = "container:MyProjiect.xcodeproj">
+            BuildableName = "FindWorld.app"
+            BlueprintName = "FindWorld"
+            ReferencedContainer = "container:FindWorld.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -85,9 +85,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "88E0E1CC1BB633280047CC23"
-            BuildableName = "MyProjiect.app"
-            BlueprintName = "MyProjiect"
-            ReferencedContainer = "container:MyProjiect.xcodeproj">
+            BuildableName = "FindWorld.app"
+            BlueprintName = "FindWorld"
+            ReferencedContainer = "container:FindWorld.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

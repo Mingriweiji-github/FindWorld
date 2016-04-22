@@ -24,7 +24,7 @@
     //初始化表视图
     [self _initViews];
     //数据
-    self.data = @[@[@"我的订单",@"我的优惠",@"我的收藏",@"我的咨询",@"我的提醒"],@[@"常用旅客信息",@"常用联系人"],@[@"问题反馈",@"更多设置"]];
+    self.data = @[@[@"我的订单",@"我的优惠"],@[@"常用旅客信息",@"常用联系人"]];
     
     
     
@@ -73,17 +73,11 @@
 #pragma mark UITableViewDataSource
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 3;
+    return 2;
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    if (section == 0) {
-        
-        return 5;
-    }else{
-    
-        return 2;
-    }
+    return self.data.count;
     
 }
 
@@ -103,11 +97,20 @@
     
     return cell;
 }
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSLog(@"section:%ld row:%ld",indexPath.section,indexPath.row);
+    if (indexPath.section ==0 && indexPath.row == 0) {
+        NSLog(@"我的订单");
+    } if (indexPath.section == 0 && indexPath.row == 1) {
+        NSLog(@"我的优惠");
+    }
+    if (indexPath.section ==1 && indexPath.row == 0) {
+        NSLog(@"常用旅客");
+    } if (indexPath.section == 1 && indexPath.row == 1) {
+        NSLog(@"常用联系人");
+    }
 }
-
 /*
 #pragma mark - Navigation
 

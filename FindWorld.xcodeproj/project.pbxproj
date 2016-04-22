@@ -641,7 +641,7 @@
 		88DD97401BBB747A006CC19E /* 酒店.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = "酒店.json"; path = "../酒店.json"; sourceTree = "<group>"; };
 		88DD97421BBB7E18006CC19E /* LocalDataRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocalDataRequest.h; sourceTree = "<group>"; };
 		88DD97431BBB7E18006CC19E /* LocalDataRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocalDataRequest.m; sourceTree = "<group>"; };
-		88E0E1CD1BB633280047CC23 /* MyProjiect.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyProjiect.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		88E0E1CD1BB633280047CC23 /* FindWorld.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FindWorld.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		88E0E1D11BB633280047CC23 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		88E0E1D21BB633280047CC23 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		88E0E1D41BB633280047CC23 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -650,7 +650,7 @@
 		88E0E1DE1BB633280047CC23 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		88E0E1E01BB633280047CC23 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		88E0E1E31BB633280047CC23 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		88E0E1E91BB633280047CC23 /* MyProjiectTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MyProjiectTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		88E0E1E91BB633280047CC23 /* FindWorld.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FindWorld.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		88E0E1EE1BB633280047CC23 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		88E0E1EF1BB633280047CC23 /* MyProjiectTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyProjiectTests.m; sourceTree = "<group>"; };
 		88E0E1F91BB6336D0047CC23 /* qiongyou.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = qiongyou.pch; sourceTree = "<group>"; };
@@ -1384,8 +1384,8 @@
 		88E0E1CE1BB633280047CC23 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				88E0E1CD1BB633280047CC23 /* MyProjiect.app */,
-				88E0E1E91BB633280047CC23 /* MyProjiectTests.xctest */,
+				88E0E1CD1BB633280047CC23 /* FindWorld.app */,
+				88E0E1E91BB633280047CC23 /* FindWorld.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1568,9 +1568,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		88E0E1CC1BB633280047CC23 /* MyProjiect */ = {
+		88E0E1CC1BB633280047CC23 /* FindWorld */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 88E0E1F31BB633280047CC23 /* Build configuration list for PBXNativeTarget "MyProjiect" */;
+			buildConfigurationList = 88E0E1F31BB633280047CC23 /* Build configuration list for PBXNativeTarget "FindWorld" */;
 			buildPhases = (
 				88E0E1C91BB633280047CC23 /* Sources */,
 				88E0E1CA1BB633280047CC23 /* Frameworks */,
@@ -1580,14 +1580,14 @@
 			);
 			dependencies = (
 			);
-			name = MyProjiect;
+			name = FindWorld;
 			productName = MyProjiect;
-			productReference = 88E0E1CD1BB633280047CC23 /* MyProjiect.app */;
+			productReference = 88E0E1CD1BB633280047CC23 /* FindWorld.app */;
 			productType = "com.apple.product-type.application";
 		};
-		88E0E1E81BB633280047CC23 /* MyProjiectTests */ = {
+		88E0E1E81BB633280047CC23 /* FindWorldTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 88E0E1F61BB633280047CC23 /* Build configuration list for PBXNativeTarget "MyProjiectTests" */;
+			buildConfigurationList = 88E0E1F61BB633280047CC23 /* Build configuration list for PBXNativeTarget "FindWorldTests" */;
 			buildPhases = (
 				88E0E1E51BB633280047CC23 /* Sources */,
 				88E0E1E61BB633280047CC23 /* Frameworks */,
@@ -1598,9 +1598,9 @@
 			dependencies = (
 				88E0E1EB1BB633280047CC23 /* PBXTargetDependency */,
 			);
-			name = MyProjiectTests;
+			name = FindWorldTests;
 			productName = MyProjiectTests;
-			productReference = 88E0E1E91BB633280047CC23 /* MyProjiectTests.xctest */;
+			productReference = 88E0E1E91BB633280047CC23 /* FindWorld.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -1622,7 +1622,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 88E0E1C81BB633280047CC23 /* Build configuration list for PBXProject "MyProjiect" */;
+			buildConfigurationList = 88E0E1C81BB633280047CC23 /* Build configuration list for PBXProject "FindWorld" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -1636,8 +1636,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				88E0E1CC1BB633280047CC23 /* MyProjiect */,
-				88E0E1E81BB633280047CC23 /* MyProjiectTests */,
+				88E0E1CC1BB633280047CC23 /* FindWorld */,
+				88E0E1E81BB633280047CC23 /* FindWorldTests */,
 			);
 		};
 /* End PBXProject section */
@@ -1959,7 +1959,7 @@
 /* Begin PBXTargetDependency section */
 		88E0E1EB1BB633280047CC23 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 88E0E1CC1BB633280047CC23 /* MyProjiect */;
+			target = 88E0E1CC1BB633280047CC23 /* FindWorld */;
 			targetProxy = 88E0E1EA1BB633280047CC23 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -2073,6 +2073,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PREFIX_HEADER = "$(SRCROOT)/MyProjiect/qiongyou.pch";
 				INFOPLIST_FILE = MyProjiect/Info.plist;
@@ -2083,7 +2084,7 @@
 					"$(PROJECT_DIR)/MyProjiect/资源文件/UMSocial_Sdk_4.2.5",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.wxhl.MyProjiect345;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = FindWorld;
 			};
 			name = Debug;
 		};
@@ -2091,6 +2092,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PREFIX_HEADER = "$(SRCROOT)/MyProjiect/qiongyou.pch";
 				INFOPLIST_FILE = MyProjiect/Info.plist;
@@ -2101,7 +2103,7 @@
 					"$(PROJECT_DIR)/MyProjiect/资源文件/UMSocial_Sdk_4.2.5",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.wxhl.MyProjiect345;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = FindWorld;
 			};
 			name = Release;
 		};
@@ -2119,8 +2121,8 @@
 				);
 				INFOPLIST_FILE = MyProjiectTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MyProjiect.app/MyProjiect";
+				PRODUCT_NAME = FindWorld;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FindWorld.app/FindWorld";
 			};
 			name = Debug;
 		};
@@ -2134,15 +2136,15 @@
 				);
 				INFOPLIST_FILE = MyProjiectTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MyProjiect.app/MyProjiect";
+				PRODUCT_NAME = FindWorld;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FindWorld.app/FindWorld";
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		88E0E1C81BB633280047CC23 /* Build configuration list for PBXProject "MyProjiect" */ = {
+		88E0E1C81BB633280047CC23 /* Build configuration list for PBXProject "FindWorld" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				88E0E1F11BB633280047CC23 /* Debug */,
@@ -2151,7 +2153,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		88E0E1F31BB633280047CC23 /* Build configuration list for PBXNativeTarget "MyProjiect" */ = {
+		88E0E1F31BB633280047CC23 /* Build configuration list for PBXNativeTarget "FindWorld" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				88E0E1F41BB633280047CC23 /* Debug */,
@@ -2160,7 +2162,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		88E0E1F61BB633280047CC23 /* Build configuration list for PBXNativeTarget "MyProjiectTests" */ = {
+		88E0E1F61BB633280047CC23 /* Build configuration list for PBXNativeTarget "FindWorldTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				88E0E1F71BB633280047CC23 /* Debug */,

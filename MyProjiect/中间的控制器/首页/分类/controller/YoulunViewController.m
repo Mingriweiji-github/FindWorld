@@ -62,12 +62,10 @@
     
     //type数据请求
     [self typeDataRequest];
-    
     //初始化tabelView
     [self _iniTabelViews];
 
 }
-
 
 #pragma mark 头部视图
 - (void)_initHeaderView
@@ -250,7 +248,50 @@
     }
     
 }
-
+#pragma mark 下拉的单元格视图(tableView放在view上即可)
+- (void)_iniTabelViews
+{
+    
+    myView=[[UIView alloc] initWithFrame:CGRectMake(0, 50, kScreenWidth, kScreenHeight-64)];
+    _typeTableV = [[UITableView alloc] initWithFrame:myView.bounds style:UITableViewStylePlain];
+    _typeTableV.delegate=self;
+    _typeTableV.dataSource=self;
+    [myView addSubview:_typeTableV];
+    
+    myView.hidden=YES;//一开始隐藏view
+    [self.view addSubview:myView];
+    
+    
+    departView = [[UIView alloc] initWithFrame:CGRectMake(0, 50, kScreenWidth, kScreenHeight-64)];
+    _departTabelV = [[UITableView alloc] initWithFrame:departView.bounds style:UITableViewStylePlain];
+    _departTabelV.delegate=self;
+    _departTabelV.dataSource=self;
+    [departView addSubview:_departTabelV];
+    
+    departView.hidden=YES;
+    [self.view addSubview:departView];
+    
+    //时间视图
+    timeView = [[UIView alloc] initWithFrame:CGRectMake(0, 50, kScreenWidth, kScreenHeight-64)];
+    _timeTabelV = [[UITableView alloc] initWithFrame:timeView.bounds style:UITableViewStylePlain];
+    _timeTabelV.delegate=self;
+    _timeTabelV.dataSource=self;
+    
+    [timeView addSubview:_timeTabelV];
+    timeView.hidden=YES;
+    [self.view addSubview:timeView];
+    
+    //目的地
+    destinationView = [[UIView alloc] initWithFrame:CGRectMake(0, 50, kScreenWidth, kScreenHeight-64)];
+    _destinationTabelV = [[UITableView alloc] initWithFrame:destinationView.bounds style:UITableViewStylePlain];
+    _destinationTabelV.delegate=self;
+    _destinationTabelV.dataSource=self;
+    [destinationView addSubview:_destinationTabelV];
+    
+    destinationView.hidden=YES;
+    [self.view addSubview:destinationView];
+    
+}
 #pragma mark UICollectionViewDataSource
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
@@ -306,14 +347,278 @@
     
     [_collectionView reloadData];//刷新UI
 }
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+#pragma mark button下单元格内容
+- (void)typeDataRequest
+{
+    
+    NSMutableDictionary *params= [NSMutableDictionary dictionary];
+    
+    [WebDataService requestAFData:get_all_categorys
+                       httpMethod:@"GET"
+                           params:params
+                 completionHandle:^(id result) {
+                     
+                     NSDictionary *data = result[@"data"];
+                     
+                     
+                     NSArray *type = [data objectForKey:@"type"];
+                     NSArray *departure = [data objectForKey:@"departure"];
+                     NSArray *times_drange=[data objectForKey:@"times_drange"];
+                     NSArray *poi = [data objectForKey:@"poi"];
+                     
+                     
+                     NSMutableArray *mArr=[NSMutableArray array];
+                     NSMutableArray *departArr=[NSMutableArray array];
+                     NSMutableArray *timeArr=[NSMutableArray array];
+                     NSMutableArray *destinationArr=[NSMutableArray array];
+                     //                     NSMutableArray *detailArr=[NSMutableArray array];
+                     for (NSDictionary *dic in type) {
+                         
+                         NSLog(@"dic :%@",dic);
+                         TypeModel *model=[[TypeModel alloc] initContentWithDic:dic];
+                         
+                         [mArr addObject:model];
+                     }
+                     for (NSDictionary *dic in departure) {
+                         
+                         TypeModel *model=[[TypeModel alloc] initContentWithDic:dic];
+                         
+                         [departArr addObject:model];
+                     }
+                     for (NSDictionary *dic in times_drange) {//旅行时间
+                         
+                         //                         TypeModel *model=[[TypeModel alloc] initContentWithDic:dic];
+                         
+                         NSString *timeStr = [dic objectForKey:@"description"];
+                         
+                         [timeArr addObject:timeStr];
+                         
+                         
+                     }
+                     for (NSDictionary *dic in poi) {//目的地-左侧
+                         
+                         
+                         TypeModel *model=[[TypeModel alloc] initContentWithDic:dic];
+                         
+                         [destinationArr addObject:model];
+                     }
+                     
+                     _typeData = mArr;
+                     [_typeTableV reloadData];
+                     
+                     _departData = departArr;
+                     [_departTabelV reloadData];
+                     
+                     _destinationData = destinationArr;
+                     [_destinationTabelV reloadData];//左侧单元格
+                     _timeData = timeArr;
+                     [_timeTabelV reloadData];
+                     
+                 }];
+    
 }
-*/
+
+
+
+#pragma mark UITableViewDataSource
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    if (tableView == _typeTableV) {
+        return _typeData.count;
+        
+    }else if (tableView == _departTabelV){
+        
+        return _departData.count;
+        
+    }else if (tableView == _destinationTabelV){
+        
+        return _destinationData.count;
+        
+    }else if (tableView == _timeTabelV){
+        
+        return _timeData.count;
+        
+    }else if (tableView == _detailTableView){
+        
+        return _detailData.count;
+        
+    }
+    
+    return 20;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    static NSString *identifier=@"Cell";
+    
+    UITableViewCell *cell=[tableView dequeueReusableCellWithIdentifier:identifier];
+    if (cell == nil) {
+        
+        cell=[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
+    }
+    
+    cell.backgroundColor=[UIColor clearColor];
+    
+    
+    TypeModel *model=[[TypeModel alloc] init];
+    
+    
+    if (tableView == _typeTableV) {
+        
+        model = _typeData[indexPath.row];
+        cell.textLabel.text=model.catename;
+        
+    }else if (tableView == _departTabelV){
+        
+        model = _departData[indexPath.row];
+        cell.textLabel.text=model.city_des;
+        
+    }else if (tableView == _timeTabelV){//时间
+        
+        cell.textLabel.text = _timeData[indexPath.row];
+        
+    }else if (tableView == _destinationTabelV){//目的地-左侧
+        
+        model = _destinationData[indexPath.row];
+        cell.textLabel.text=model.continent_name;
+        
+        
+    }else if (tableView == _detailTableView){//目的地-右侧
+        
+        //        NSString *text = _detailData[indexPath.row];
+        //        cell.textLabel.text=text;
+        
+        cell.textLabel.text=_detailData[indexPath.row];
+        cell.backgroundColor=[UIColor whiteColor];
+    }
+    
+    return cell;
+    
+}
+//选中
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    //选中的cell
+    UITableViewCell *cell=[tableView cellForRowAtIndexPath:indexPath];
+    
+    if (tableView == self.typeTableV) {//全部类型
+        
+        NSString *typeName=cell.textLabel.text;
+        
+        id json=[LocalDataRequest requestLocalData:typeName];
+        NSMutableArray *mArr=[NSMutableArray array];
+        NSDictionary *data=[json objectForKey:@"data"];
+        NSArray *lastminutes = [data objectForKey:@"lastminutes"];
+        for (NSDictionary *dic in lastminutes) {
+            TicketModel *model=[[TicketModel alloc] initContentWithDic:dic];
+            [mArr addObject:model];
+            
+        }
+        _data=mArr;
+        [_collectionView reloadData];//刷新UI
+        UIButton *btn=(UIButton *)[view viewWithTag:10];//隐藏单元格，改变头部按钮title
+        [btn setTitle:typeName forState:UIControlStateNormal];
+        [self buttonClick:btn];
+        
+    }if (tableView == self.departTabelV) {//全部出发地
+        
+        NSString *departName = cell.textLabel.text;
+        
+        if (indexPath.row == 1) {
+            departName=@"北京:天津";
+        }if (indexPath.row == 2) {
+            departName=@"上海:杭州";
+        }if (indexPath.row == 3) {
+            departName=@"成都:重庆";
+        }if (indexPath.row == 4) {
+            departName=@"广州:深圳";
+        }
+        
+        id json=[LocalDataRequest requestLocalData:departName];
+        NSMutableArray *mArr=[NSMutableArray array];
+        NSDictionary *data=[json objectForKey:@"data"];
+        NSArray *lastminutes = [data objectForKey:@"lastminutes"];
+        for (NSDictionary *dic in lastminutes) {
+            TicketModel *model=[[TicketModel alloc] initContentWithDic:dic];
+            [mArr addObject:model];
+            
+        }
+        _data=mArr;
+        [_collectionView reloadData];//刷新UI
+        UIButton *btn=(UIButton *)[view viewWithTag:11];
+        [btn setTitle:departName forState:UIControlStateNormal];//隐藏单元格，改变头部按钮title
+        [self buttonClick:btn];
+        
+        
+    }
+    
+    if (tableView == self.destinationTabelV && indexPath.row == 5){
+        //1.5太平洋-目的地
+        TypeModel *model = _destinationData[indexPath.row];
+        _detailData = model.country;
+        NSMutableArray *mArr=[NSMutableArray array];
+        for (NSDictionary *nameDic in _detailData){
+            //此处不再需要model的封装，而是要根据选择的洲给出country中的country_name,但是country中又是一个个小的dic因此要遍历才能取出来
+            NSArray *name = [nameDic objectForKey:@"country_name"];
+            [mArr addObject:name];
+        }
+        _detailData=mArr;
+        [_detailTableView reloadData];//刷新UI
+        
+        if (_detailTableView == nil) {
+            //国家详情
+            detailView = [[UIView alloc] initWithFrame:CGRectMake(kScreenWidth / 2, 0, kScreenWidth / 2, kScreenHeight -50-64)];
+            _detailTableView = [[UITableView alloc] initWithFrame:detailView.bounds style:UITableViewStylePlain];
+            _detailTableView.delegate=self;
+            _detailTableView.dataSource=self;
+            _detailTableView.backgroundColor=[UIColor whiteColor];
+            [detailView addSubview:_detailTableView];
+            
+            [_destinationTabelV addSubview:detailView]; //国家view放在_destinationTabelV上
+            
+            
+            
+        }
+    }
+    
+    
+    
+    
+    if (tableView == self.timeTabelV) {//4.旅行时间
+        
+        NSString *time =  cell.textLabel.text;
+        NSLog(@"time %@",time);
+        //刷新数据
+        id json=[LocalDataRequest requestLocalData:cell.textLabel.text];
+        
+        NSMutableArray *mArr=[NSMutableArray array];
+        NSDictionary *data=[json objectForKey:@"data"];
+        NSArray *lastminutes = [data objectForKey:@"lastminutes"];
+        for (NSDictionary *dic in lastminutes) {
+            TicketModel *model=[[TicketModel alloc] initContentWithDic:dic];
+            [mArr addObject:model];
+            
+        }
+        _data=mArr;
+        [_collectionView reloadData];//刷新UI
+        
+        UIButton *btn = (UIButton *)[view viewWithTag:13];
+        [btn setTitle:time forState:UIControlStateNormal];
+        [self buttonClick:btn];
+        
+        
+    }
+    
+    // 取消前一个选中的，就是单选啦
+    NSIndexPath *_lastIndex = [NSIndexPath indexPathForRow:_index inSection:0];
+    UITableViewCell *lastCell = [tableView cellForRowAtIndexPath:_lastIndex];
+    lastCell.accessoryType = UITableViewCellAccessoryNone;
+    // 选中操作
+    //    UITableViewCell *cell = [tableView  cellForRowAtIndexPath:indexPath];
+    cell.accessoryType = UITableViewCellAccessoryCheckmark;
+    // 保存选中的
+    _index = indexPath.row;
+    
+}
 
 @end

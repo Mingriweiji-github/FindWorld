@@ -39,7 +39,7 @@
 {
     //返回
     UIButton *leftBtn=[UIButton buttonWithType:UIButtonTypeCustom];
-    leftBtn.frame = CGRectMake(0, 30, 35, 35);
+    leftBtn.frame = CGRectMake(10*KWidth_Scale, 20, 35, 35);
     [leftBtn setBackgroundImage:[UIImage imageNamed:@"back_pic.jpg"] forState:UIControlStateNormal];
     [leftBtn addTarget:self action:@selector(backBtnClick:) forControlEvents:UIControlEventTouchUpInside];
     
