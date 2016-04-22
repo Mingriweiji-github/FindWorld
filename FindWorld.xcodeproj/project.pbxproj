@@ -10,6 +10,17 @@
 		57145C7D1CC790790062732F /* back-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 57145C7A1CC790790062732F /* back-icon.png */; };
 		57145C7E1CC790790062732F /* back-icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 57145C7B1CC790790062732F /* back-icon@2x.png */; };
 		57145C7F1CC790790062732F /* back-icon@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 57145C7C1CC790790062732F /* back-icon@3x.png */; };
+		57145CFF1CCA1AA30062732F /* GCB_ProductDetailDB.m in Sources */ = {isa = PBXBuildFile; fileRef = 57145CFE1CCA1AA30062732F /* GCB_ProductDetailDB.m */; };
+		57145D0C1CCA21E20062732F /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = 57145D011CCA21E20062732F /* FMDatabase.m */; };
+		57145D0D1CCA21E20062732F /* FMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 57145D031CCA21E20062732F /* FMDatabaseAdditions.m */; };
+		57145D0E1CCA21E20062732F /* FMDatabasePool.m in Sources */ = {isa = PBXBuildFile; fileRef = 57145D051CCA21E20062732F /* FMDatabasePool.m */; };
+		57145D0F1CCA21E20062732F /* FMDatabaseQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 57145D071CCA21E20062732F /* FMDatabaseQueue.m */; };
+		57145D101CCA21E20062732F /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 57145D0A1CCA21E20062732F /* FMResultSet.m */; };
+		57145D121CCA24310062732F /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 57145D111CCA24310062732F /* libsqlite3.tbd */; };
+		57145D1C1CCA26120062732F /* WFPassengerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 57145D1A1CCA26120062732F /* WFPassengerCell.m */; };
+		57145D1D1CCA26120062732F /* WFPassengerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 57145D1B1CCA26120062732F /* WFPassengerCell.xib */; };
+		57145D201CCA29220062732F /* FWPassengerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 57145D1F1CCA29220062732F /* FWPassengerViewController.m */; };
+		57145D231CCA2FF10062732F /* WFPassengerModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 57145D221CCA2FF10062732F /* WFPassengerModel.m */; };
 		8865C5721BBABCA00039823A /* TypeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8865C5711BBABCA00039823A /* TypeModel.m */; };
 		8899F9F91BB6954A003B063A /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8899F9F61BB6954A003B063A /* HomeViewController.m */; };
 		8899FA081BB69607003B063A /* GroupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8899FA071BB69607003B063A /* GroupViewController.m */; };
@@ -304,6 +315,27 @@
 		57145C7A1CC790790062732F /* back-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "back-icon.png"; sourceTree = "<group>"; };
 		57145C7B1CC790790062732F /* back-icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "back-icon@2x.png"; sourceTree = "<group>"; };
 		57145C7C1CC790790062732F /* back-icon@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "back-icon@3x.png"; sourceTree = "<group>"; };
+		57145CFD1CCA1AA30062732F /* GCB_ProductDetailDB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCB_ProductDetailDB.h; sourceTree = "<group>"; };
+		57145CFE1CCA1AA30062732F /* GCB_ProductDetailDB.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCB_ProductDetailDB.m; sourceTree = "<group>"; };
+		57145D001CCA21E20062732F /* FMDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabase.h; sourceTree = "<group>"; };
+		57145D011CCA21E20062732F /* FMDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabase.m; sourceTree = "<group>"; };
+		57145D021CCA21E20062732F /* FMDatabaseAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabaseAdditions.h; sourceTree = "<group>"; };
+		57145D031CCA21E20062732F /* FMDatabaseAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabaseAdditions.m; sourceTree = "<group>"; };
+		57145D041CCA21E20062732F /* FMDatabasePool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabasePool.h; sourceTree = "<group>"; };
+		57145D051CCA21E20062732F /* FMDatabasePool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabasePool.m; sourceTree = "<group>"; };
+		57145D061CCA21E20062732F /* FMDatabaseQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabaseQueue.h; sourceTree = "<group>"; };
+		57145D071CCA21E20062732F /* FMDatabaseQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabaseQueue.m; sourceTree = "<group>"; };
+		57145D081CCA21E20062732F /* FMDB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDB.h; sourceTree = "<group>"; };
+		57145D091CCA21E20062732F /* FMResultSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMResultSet.h; sourceTree = "<group>"; };
+		57145D0A1CCA21E20062732F /* FMResultSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMResultSet.m; sourceTree = "<group>"; };
+		57145D111CCA24310062732F /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
+		57145D191CCA26120062732F /* WFPassengerCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WFPassengerCell.h; sourceTree = "<group>"; };
+		57145D1A1CCA26120062732F /* WFPassengerCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WFPassengerCell.m; sourceTree = "<group>"; };
+		57145D1B1CCA26120062732F /* WFPassengerCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WFPassengerCell.xib; sourceTree = "<group>"; };
+		57145D1E1CCA29220062732F /* FWPassengerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FWPassengerViewController.h; sourceTree = "<group>"; };
+		57145D1F1CCA29220062732F /* FWPassengerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FWPassengerViewController.m; sourceTree = "<group>"; };
+		57145D211CCA2FF10062732F /* WFPassengerModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WFPassengerModel.h; sourceTree = "<group>"; };
+		57145D221CCA2FF10062732F /* WFPassengerModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WFPassengerModel.m; sourceTree = "<group>"; };
 		8865C5701BBABCA00039823A /* TypeModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TypeModel.h; sourceTree = "<group>"; };
 		8865C5711BBABCA00039823A /* TypeModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TypeModel.m; sourceTree = "<group>"; };
 		8899F9F51BB6954A003B063A /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
@@ -716,6 +748,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				57145D121CCA24310062732F /* libsqlite3.tbd in Frameworks */,
 				88D1488E1BC7BAA800708F62 /* libUMSocial_Sdk_4.2.5.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -730,6 +763,35 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		57145CFC1CCA1AA30062732F /* fmdb 增删改查 封装 */ = {
+			isa = PBXGroup;
+			children = (
+				57145D0B1CCA21E20062732F /* fmdb */,
+				57145CFD1CCA1AA30062732F /* GCB_ProductDetailDB.h */,
+				57145CFE1CCA1AA30062732F /* GCB_ProductDetailDB.m */,
+			);
+			path = "fmdb 增删改查 封装";
+			sourceTree = "<group>";
+		};
+		57145D0B1CCA21E20062732F /* fmdb */ = {
+			isa = PBXGroup;
+			children = (
+				57145D001CCA21E20062732F /* FMDatabase.h */,
+				57145D011CCA21E20062732F /* FMDatabase.m */,
+				57145D021CCA21E20062732F /* FMDatabaseAdditions.h */,
+				57145D031CCA21E20062732F /* FMDatabaseAdditions.m */,
+				57145D041CCA21E20062732F /* FMDatabasePool.h */,
+				57145D051CCA21E20062732F /* FMDatabasePool.m */,
+				57145D061CCA21E20062732F /* FMDatabaseQueue.h */,
+				57145D071CCA21E20062732F /* FMDatabaseQueue.m */,
+				57145D081CCA21E20062732F /* FMDB.h */,
+				57145D091CCA21E20062732F /* FMResultSet.h */,
+				57145D0A1CCA21E20062732F /* FMResultSet.m */,
+			);
+			name = fmdb;
+			path = ../../../CommutePassenger/AirMedia/WFSource/fmdb;
+			sourceTree = "<group>";
+		};
 		8899F9F31BB6954A003B063A /* 首页 */ = {
 			isa = PBXGroup;
 			children = (
@@ -925,6 +987,8 @@
 				88EA54E61BC3C60D008DB497 /* LogInViewController.m */,
 				88EA54EA1BC3CB10008DB497 /* ZhuceViewController.h */,
 				88EA54EB1BC3CB10008DB497 /* ZhuceViewController.m */,
+				57145D1E1CCA29220062732F /* FWPassengerViewController.h */,
+				57145D1F1CCA29220062732F /* FWPassengerViewController.m */,
 			);
 			path = controller;
 			sourceTree = "<group>";
@@ -932,6 +996,8 @@
 		8899FA041BB6955E003B063A /* model */ = {
 			isa = PBXGroup;
 			children = (
+				57145D211CCA2FF10062732F /* WFPassengerModel.h */,
+				57145D221CCA2FF10062732F /* WFPassengerModel.m */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -939,6 +1005,9 @@
 		8899FA051BB6955E003B063A /* view */ = {
 			isa = PBXGroup;
 			children = (
+				57145D191CCA26120062732F /* WFPassengerCell.h */,
+				57145D1A1CCA26120062732F /* WFPassengerCell.m */,
+				57145D1B1CCA26120062732F /* WFPassengerCell.xib */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -1375,6 +1444,7 @@
 		88E0E1C41BB633280047CC23 = {
 			isa = PBXGroup;
 			children = (
+				57145D111CCA24310062732F /* libsqlite3.tbd */,
 				88E0E1CF1BB633280047CC23 /* MyProjiect */,
 				88E0E1EC1BB633280047CC23 /* MyProjiectTests */,
 				88E0E1CE1BB633280047CC23 /* Products */,
@@ -1393,6 +1463,7 @@
 		88E0E1CF1BB633280047CC23 /* MyProjiect */ = {
 			isa = PBXGroup;
 			children = (
+				57145CFC1CCA1AA30062732F /* fmdb 增删改查 封装 */,
 				88E0E1D41BB633280047CC23 /* AppDelegate.h */,
 				88E0E1D51BB633280047CC23 /* AppDelegate.m */,
 				88E0E1DD1BB633280047CC23 /* Main.storyboard */,
@@ -1720,6 +1791,7 @@
 				88C5EA5D1BBA663B00CE38F6 /* seperator.png in Resources */,
 				88C7A69E1BB67CF80039F526 /* LastMinute_TitleBar_375.png in Resources */,
 				88C7A6971BB67CF80039F526 /* AppIcon40x40@2x.png in Resources */,
+				57145D1D1CCA26120062732F /* WFPassengerCell.xib in Resources */,
 				88C5B2841BC21AC1002C2BEA /* 新西兰.json in Resources */,
 				88EA54E21BC3BA4F008DB497 /* a.jpg in Resources */,
 				88C7A66D1BB671960039F526 /* home_tab_icon_3_3@2x.png in Resources */,
@@ -1843,6 +1915,7 @@
 				889CEEE81BB8D5C400273DE5 /* UIImage+WebP.m in Sources */,
 				889CEEE51BB8D5C400273DE5 /* UIButton+WebCache.m in Sources */,
 				889CEEA41BB8C94100273DE5 /* AFSecurityPolicy.m in Sources */,
+				57145D231CCA2FF10062732F /* WFPassengerModel.m in Sources */,
 				8899FA0B1BB69652003B063A /* PickedViewController.m in Sources */,
 				889CEEAC1BB8C94100273DE5 /* UIButton+AFNetworking.m in Sources */,
 				88E0E1D91BB633280047CC23 /* MyProjiect.xcdatamodeld in Sources */,
@@ -1861,18 +1934,22 @@
 				88D8AF091BC2A58700D9892F /* MJRefreshConst.m in Sources */,
 				88EA54A11BC379B80008D1AF /* CamBodiaViewController.m in Sources */,
 				8899FA081BB69607003B063A /* GroupViewController.m in Sources */,
+				57145D201CCA29220062732F /* FWPassengerViewController.m in Sources */,
 				88E0E1D61BB633280047CC23 /* AppDelegate.m in Sources */,
 				88C5B2B91BC2633C002C2BEA /* PickDetailViewController.m in Sources */,
 				88C7A6A71BB67EC40039F526 /* BaseNavigationController.m in Sources */,
 				88C55A7F1BC64A17007E763C /* SearchViewController.m in Sources */,
+				57145D0D1CCA21E20062732F /* FMDatabaseAdditions.m in Sources */,
 				88C5EA551BBA42DE00CE38F6 /* FlightCollectionViewCell.m in Sources */,
 				889CEEDA1BB8D5C400273DE5 /* MKAnnotationView+WebCache.m in Sources */,
+				57145D0C1CCA21E20062732F /* FMDatabase.m in Sources */,
 				88C5EA481BBA391000CE38F6 /* FreeViewController.m in Sources */,
 				88D8AF0A1BC2A58700D9892F /* MJRefreshFooterView.m in Sources */,
 				889CEEAB1BB8C94100273DE5 /* UIAlertView+AFNetworking.m in Sources */,
 				889CEEB01BB8C94100273DE5 /* UIWebView+AFNetworking.m in Sources */,
 				88EA54A41BC379C40008D1AF /* LundunViewController.m in Sources */,
 				88C5B2B61BC2601B002C2BEA /* CollectionModel.m in Sources */,
+				57145CFF1CCA1AA30062732F /* GCB_ProductDetailDB.m in Sources */,
 				889CEEEA1BB8D5C400273DE5 /* UIImageView+WebCache.m in Sources */,
 				88C5EA4B1BBA396D00CE38F6 /* VisaViewController.m in Sources */,
 				88C91B321BC4C1D300D575B4 /* NSTimer+Addition.m in Sources */,
@@ -1880,6 +1957,7 @@
 				88D8AEF11BC29E6B00D9892F /* MBProgressHUD.m in Sources */,
 				88EA54951BC379550008D1AF /* KoreaViewController.m in Sources */,
 				88C53A591BB9366500EC3A7E /* JingxuanModel.m in Sources */,
+				57145D101CCA21E20062732F /* FMResultSet.m in Sources */,
 				88C5EA421BBA37E900CE38F6 /* FlightViewController.m in Sources */,
 				889CEEA81BB8C94100273DE5 /* AFURLSessionManager.m in Sources */,
 				889CEEAD1BB8C94100273DE5 /* UIImageView+AFNetworking.m in Sources */,
@@ -1892,6 +1970,7 @@
 				88D8AF081BC2A58700D9892F /* MJRefreshBaseView.m in Sources */,
 				88E0E23C1BB638DB0047CC23 /* RightViewController.m in Sources */,
 				88DD97441BBB7E18006CC19E /* LocalDataRequest.m in Sources */,
+				57145D1C1CCA26120062732F /* WFPassengerCell.m in Sources */,
 				88EA54861BC374170008D1AF /* SingaporeViewController.m in Sources */,
 				889CEEDF1BB8D5C400273DE5 /* SDWebImageCompat.m in Sources */,
 				88C5EA451BBA38FF00CE38F6 /* HotelsViewController.m in Sources */,
@@ -1906,6 +1985,8 @@
 				889CEEA71BB8C94100273DE5 /* AFURLResponseSerialization.m in Sources */,
 				88C789081BC0D1D4009C8AA5 /* CItyPlayViewController.m in Sources */,
 				889CEEA11BB8C94100273DE5 /* AFHTTPRequestOperationManager.m in Sources */,
+				57145D0F1CCA21E20062732F /* FMDatabaseQueue.m in Sources */,
+				57145D0E1CCA21E20062732F /* FMDatabasePool.m in Sources */,
 				889CEEE31BB8D5C400273DE5 /* SDWebImageManager.m in Sources */,
 				88C5B2C01BC26B11002C2BEA /* MyCollectionViewCell.m in Sources */,
 				88EA54E71BC3C60D008DB497 /* LogInViewController.m in Sources */,

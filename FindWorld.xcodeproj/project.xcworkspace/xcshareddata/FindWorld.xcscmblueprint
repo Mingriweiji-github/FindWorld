@@ -1,0 +1,32 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "89E987E0A22CE5DBDB3A2E55467E74F5C7354117",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+    "8ebf8d78-3a94-11e5-9209-e562934ef0d6++38" : {
+
+    }
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "8ebf8d78-3a94-11e5-9209-e562934ef0d6++38" : 0,
+    "89E987E0A22CE5DBDB3A2E55467E74F5C7354117" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "E25537BB-AAF1-4321-A04E-079371F7342E",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "8ebf8d78-3a94-11e5-9209-e562934ef0d6++38" : "CommutePassenger\/",
+    "89E987E0A22CE5DBDB3A2E55467E74F5C7354117" : "FindWorld\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "FindWorld",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "FindWorld.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/Mingriweiji-github\/FindWorld.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "89E987E0A22CE5DBDB3A2E55467E74F5C7354117"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/svn.ihangmei.com:8443\/svn\/mobile",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Subversion",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "8ebf8d78-3a94-11e5-9209-e562934ef0d6++38"
+    }
+  ]
+}
