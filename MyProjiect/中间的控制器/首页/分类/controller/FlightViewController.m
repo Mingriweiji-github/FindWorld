@@ -599,7 +599,7 @@
     
     }
     
-    if (tableView == self.destinationTabelV ){
+//    if (tableView == self.destinationTabelV ){
          //目的地
         //1.5太平洋
         TypeModel *model = _destinationData[indexPath.row];
@@ -611,14 +611,18 @@
               [mArr addObject:name];
         }
         
-        if (_detailTableView == nil) {
-            
+//        if (_detailTableView == nil) {
+    
 
             //国家详情
-            if (detailView == nil) {
+            if (detailView == nil|| _detailTableView == nil) {
                 detailView = [[UIView alloc] initWithFrame:CGRectMake(kScreenWidth / 2, 0, kScreenWidth / 2, kScreenHeight -50-64)];
+                
+
             }
-            _detailTableView = [[UITableView alloc] initWithFrame:detailView.bounds style:UITableViewStylePlain];
+    
+         _detailTableView = [[UITableView alloc] initWithFrame:detailView.bounds style:UITableViewStylePlain];
+
             _detailTableView.delegate=self;
             _detailTableView.dataSource=self;
             _detailTableView.backgroundColor=[UIColor whiteColor];
@@ -632,16 +636,18 @@
             [_destinationTabelV reloadData];//刷新UI
             
             
-        }
-    }
+//        }
+//    }
     
     
     if (self.detailTableView == tableView) {
         
         [_collectionView reloadData];//刷新UI
         
-            destinationView.hidden=YES;
-            detailView.hidden=YES;
+            destinationView = nil;
+            detailView = nil;
+        self.destinationTabelV = nil;
+        self.detailTableView = nil;
     }
 
 
