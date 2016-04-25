@@ -599,7 +599,7 @@
     
     }
     
-//    if (tableView == self.destinationTabelV ){
+    if (tableView == self.destinationTabelV ){
          //目的地
         //1.5太平洋
         TypeModel *model = _destinationData[indexPath.row];
@@ -611,43 +611,55 @@
               [mArr addObject:name];
         }
         
-//        if (_detailTableView == nil) {
     
 
             //国家详情
-            if (detailView == nil|| _detailTableView == nil) {
-                detailView = [[UIView alloc] initWithFrame:CGRectMake(kScreenWidth / 2, 0, kScreenWidth / 2, kScreenHeight -50-64)];
+            if (detailView == nil) {
                 
+                detailView = [[UIView alloc] initWithFrame:CGRectMake(kScreenWidth / 2, 0, kScreenWidth / 2, kScreenHeight -50-64)];
+                [_destinationTabelV addSubview:detailView]; //国家view放在_destinationTabelV上
+
 
             }
-    
-         _detailTableView = [[UITableView alloc] initWithFrame:detailView.bounds style:UITableViewStylePlain];
+        
+        
+        if (_detailTableView == nil) {
+            
+            _detailTableView = [[UITableView alloc] initWithFrame:detailView.bounds style:UITableViewStylePlain];
 
             _detailTableView.delegate=self;
             _detailTableView.dataSource=self;
             _detailTableView.backgroundColor=[UIColor whiteColor];
             [detailView addSubview:_detailTableView];
-            
-            [_destinationTabelV addSubview:detailView]; //国家view放在_destinationTabelV上
-            
-            NSLog(@"国家：%@",mArr);
+        }
+
+            NSLog(@" %@ 国家：%@",cell.textLabel.text,mArr);
             _detailData=mArr;
 
-            [_destinationTabelV reloadData];//刷新UI
-            
-            
-//        }
-//    }
+            [_detailTableView reloadData];//国家列表刷新UI
+
+        // 取消前一个选中的，就是单选啦
+        NSIndexPath *_lastIndex = [NSIndexPath indexPathForRow:_index inSection:0];
+        UITableViewCell *lastCell = [tableView cellForRowAtIndexPath:_lastIndex];
+        lastCell.accessoryType = UITableViewCellAccessoryNone;
+        // 选中操作
+        //    UITableViewCell *cell = [tableView  cellForRowAtIndexPath:indexPath];
+        cell.accessoryType = UITableViewCellAccessoryCheckmark;
+        // 保存选中的
+        _index = indexPath.row;
+
+        }
     
     
     if (self.detailTableView == tableView) {
         
-        [_collectionView reloadData];//刷新UI
+        [_collectionView reloadData];//_collection刷新UI
+
         
-            destinationView = nil;
-            detailView = nil;
-        self.destinationTabelV = nil;
-        self.detailTableView = nil;
+        
+        destinationView.hidden = YES;
+        detailView.hidden = YES;
+     
     }
 
 
@@ -697,15 +709,15 @@
         
     }
 
-    // 取消前一个选中的，就是单选啦
-    NSIndexPath *_lastIndex = [NSIndexPath indexPathForRow:_index inSection:0];
-    UITableViewCell *lastCell = [tableView cellForRowAtIndexPath:_lastIndex];
-    lastCell.accessoryType = UITableViewCellAccessoryNone;
-    // 选中操作
-    //    UITableViewCell *cell = [tableView  cellForRowAtIndexPath:indexPath];
-    cell.accessoryType = UITableViewCellAccessoryCheckmark;
-    // 保存选中的
-    _index = indexPath.row;
+//    // 取消前一个选中的，就是单选啦
+//    NSIndexPath *_lastIndex = [NSIndexPath indexPathForRow:_index inSection:0];
+//    UITableViewCell *lastCell = [tableView cellForRowAtIndexPath:_lastIndex];
+//    lastCell.accessoryType = UITableViewCellAccessoryNone;
+//    // 选中操作
+//    //    UITableViewCell *cell = [tableView  cellForRowAtIndexPath:indexPath];
+//    cell.accessoryType = UITableViewCellAccessoryCheckmark;
+//    // 保存选中的
+//    _index = indexPath.row;
 
 }
 - (void)creatDetailCity
