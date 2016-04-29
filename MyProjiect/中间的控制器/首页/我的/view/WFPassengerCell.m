@@ -32,20 +32,10 @@
 {
     [super layoutSubviews];
     
-    //图片
-//    [_imageView sd_setImageWithURL:[NSURL URLWithString:self.model.imgUrl]];
-//    
-//    //    NSLog(@"_model.title is %@",_model.title);
-//    _titleLabel.text=[NSString stringWithFormat:@"%@",self.model.title];
-//    
-//    //    NSLog(@"_departureTime.title is %@",_model.departureTime);
-//    _departureTime.text=[NSString stringWithFormat:@"出发时间：%@",self.model.departureTime];
-//    
-//    //    _pricelabel.text=[NSString stringWithFormat:@"%@",self.model.price];
-    
-    
-    
-    
+    self.nameLabel.text = [NSString stringWithFormat:@"姓名：%u",arc4random() / 2];
+    self.phoneLabel.text= [NSString stringWithFormat:@"%u",arc4random() / 2];
+    self.identiLabel.text = [NSString stringWithFormat:@"身份证%u",arc4random() / 2];
+
 }
 
 

@@ -7,7 +7,7 @@
 //
 
 #import "MainTabBarViewController.h"
-
+#import "WFFirstOpenView.h"
 @interface MainTabBarViewController ()
 {
     
@@ -23,7 +23,26 @@
     //自定义tabBarView
     [self _initTabBarView];
     
-
+    
+    if (![[NSUserDefaults standardUserDefaults] objectForKey:@"FrrstLaunch"]) {
+        
+        NSLog(@"第一次启动");
+        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"FrrstLaunch"];
+        
+        WFFirstOpenView *myView = [[WFFirstOpenView alloc] initWithFrame:[UIScreen mainScreen].bounds];
+        
+        
+        [self.view addSubview:myView];
+        
+        
+        
+    }else{
+        
+        NSLog(@"不是第一次启动");
+        
+        
+        
+    }
 }
 
 #pragma mark 自定义tabBarView

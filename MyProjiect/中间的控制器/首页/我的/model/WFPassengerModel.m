@@ -10,4 +10,14 @@
 
 @implementation WFPassengerModel
 
+-(id)initContentWithDic:(NSDictionary *)jsonDic
+{
+    self = [super initContentWithDic:jsonDic];
+    
+    if (self) {
+        //
+    }
+    
+    return self;
+}
 @end

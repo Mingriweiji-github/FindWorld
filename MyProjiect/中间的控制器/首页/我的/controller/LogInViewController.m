@@ -9,6 +9,7 @@
 #import "LogInViewController.h"
 #import "ZhuceViewController.h"
 //#import "UMSocial.h"
+#import "SSKeychain.h"
 @interface LogInViewController ()
 {
     UITextField *tf1;
@@ -37,22 +38,7 @@
  //头部
 - (void)_initHeaderView
 {
-    //返回
-    UIButton *leftBtn=[UIButton buttonWithType:UIButtonTypeCustom];
-    leftBtn.frame = CGRectMake(10*KWidth_Scale, 20, 35, 35);
-    [leftBtn setBackgroundImage:[UIImage imageNamed:@"back_pic.jpg"] forState:UIControlStateNormal];
-    [leftBtn addTarget:self action:@selector(backBtnClick:) forControlEvents:UIControlEventTouchUpInside];
-    
-    [self.view addSubview:leftBtn];
-    
-    //注册
-    UIButton *zhuceBtn=[UIButton buttonWithType:UIButtonTypeCustom];
-    zhuceBtn.frame = CGRectMake(kScreenWidth - 70, 30, 50, 30);
-    [zhuceBtn setBackgroundImage:[UIImage imageNamed:@"b.jpg"] forState:UIControlStateNormal];
-    
-    [zhuceBtn addTarget:self action:@selector(zhuceClick:) forControlEvents:UIControlEventTouchUpInside];
-    
-    [self.view addSubview:zhuceBtn];
+
     
     //手机号登录
     UILabel *label=[[UILabel alloc] initWithFrame:CGRectMake(kScreenWidth / 2 -20, 110, 60, 60)];
@@ -63,9 +49,7 @@
     //用户名
     tf1 = [[UITextField alloc] initWithFrame:CGRectMake(100, 160, 200, 30)];
     [tf1 setBorderStyle:UITextBorderStyleRoundedRect];
-//    tf1.autocapitalizationType=UITextAutocapitalizationTypeNone;
-    
-    tf1.placeholder=@"输入邮箱/用户名";
+    tf1.placeholder=@"输入手机号/用户名";
     tf1.clearButtonMode=UITextFieldViewModeWhileEditing;
     tf1.delegate=self;
     [tf1 becomeFirstResponder];
@@ -82,10 +66,12 @@
     passwordTF.secureTextEntry = YES;//密码保护
     [self.view addSubview:passwordTF];
     
-    //忘记密码
+    
+    
+    //新浪登录
     UIButton *tipButton=[[UIButton alloc] initWithFrame:CGRectMake(kScreenWidth / 2 - 70, passwordTF.bottom +10, 160, 30)];
-    [tipButton setTitle:@"忘记密码?" forState:UIControlStateNormal];
-    [tipButton addTarget:self action:@selector(findPassWord:) forControlEvents:UIControlEventTouchUpInside];
+    [tipButton setTitle:@"新浪登录" forState:UIControlStateNormal];
+    [tipButton addTarget:self action:@selector(Xinadenglu:) forControlEvents:UIControlEventTouchUpInside];
     tipButton.font=[UIFont systemFontOfSize:14];
     [self.view addSubview:tipButton];
     
@@ -94,18 +80,10 @@
     UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
     button.frame= CGRectMake(kScreenWidth / 2 -40, passwordTF.bottom + 50, 100, 40);
     [button setBackgroundImage:[UIImage imageNamed:@"c.jpg"] forState:UIControlStateNormal];
-    [button addTarget:self action:@selector(denglu:) forControlEvents:UIControlEventTouchUpInside];
+    [button addTarget:self action:@selector(logIn:) forControlEvents:UIControlEventTouchUpInside];
     
     [self.view addSubview:button];
-    
-    //新浪帐号登录
-    UIButton *xinlang = [UIButton buttonWithType:UIButtonTypeCustom];
-    xinlang.frame= CGRectMake(kScreenWidth / 2 -40, passwordTF.bottom + 250, 100, 40);
-    [xinlang setTitle:@"新浪帐号登录" forState:UIControlStateNormal];
-    //    [button setBackgroundImage:[UIImage imageNamed:@"c.jpg"] forState:UIControlStateNormal];
-    [xinlang addTarget:self action:@selector(denglu:) forControlEvents:UIControlEventTouchUpInside];
-    
-    [self.view addSubview:xinlang];
+
     
     //分享
     UIButton *fenxiangbutton = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -131,7 +109,7 @@
     
 }
 
-- (void)denglu:(UIButton *)btn
+- (void)Xinadenglu:(UIButton *)btn
 {
     //使用新浪帐号
     UMSocialSnsPlatform *snsPlatForm = [UMSocialSnsPlatformManager getSocialPlatformWithName:UMShareToSina];
@@ -141,17 +119,28 @@
         
         //          获取微博用户名、uid、token等
         
-        if (response.responseCode == UMSResponseCodeSuccess) {
+        if (response.responseCode == UMSResponseCodeSuccess) {//成功获取的标示
             
             UMSocialAccountEntity *snsAccount = [[UMSocialAccountManager socialAccountDictionary] valueForKey:UMShareToSina];
             
             NSLog(@"username is %@, uid is %@, token is %@ url is %@",snsAccount.userName,snsAccount.usid,snsAccount.accessToken,snsAccount.iconURL);
             
+            
+//            [[NSUserDefaults standardUserDefaults] setObject:snsAccount.userName forKey:KUserName];
+            [[NSNotificationCenter defaultCenter] postNotificationName:KUserNameSuccess object:snsAccount.userName];
+            
+            
         }});
+    
+    
+    NSLog(@"namei is %@",[[NSUserDefaults standardUserDefaults] objectForKey:KUserName]);
     
     //获取accestoken以及新浪用户信息，得到的数据在回调Block对象形参respone的data属性
     [[UMSocialDataService defaultDataService] requestSnsInformation:UMShareToSina  completion:^(UMSocialResponseEntity *response){
         NSLog(@"SnsInformation is %@",response.data);
+        
+        [self.navigationController popToRootViewControllerAnimated:YES];
+
     }];
     
 }
@@ -187,6 +176,97 @@
     
     return YES;
 }
+
+- (void)logIn:(UIButton *)btn
+{
+    
+    NSLog(@"手机号tf1:%@  密码passWoid:%@",tf1.text,passwordTF.text);
+    
+    if ([self isMobileNumber:tf1.text]) {
+        
+        NSLog(@"号码满足");
+        NSDictionary *mDic = @{@"name":tf1.text,@"passWord":passwordTF.text};
+        [[NSNotificationCenter defaultCenter] postNotificationName:KUserNameSuccess object:mDic];
+        
+        if (![[NSUserDefaults standardUserDefaults] objectForKey:@"firstLogIN"]) {
+            [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"firstLogIN"];
+            NSLog(@"第一次");
+            
+            NSError *error=nil;
+////            BOOL  name= [SSKeychain setPassword:[NSString stringWithFormat:@"%@",tf1.text] forService:KeyName account:Keychain_account  error:&error];
+////             BOOL  password= [SSKeychain setPassword:passwordTF.text forService:KeyPassWord account:Keychain_account  error:&error];
+//            if (name) {
+//                NSLog(@"钥匙串用户名已经保存成功");
+//            }if (password) {
+//                NSLog(@"钥匙串密码保存成功");
+//            }
+
+
+        }else{
+        
+            NSLog(@"不是第一次");
+        }
+        
+        
+        
+        [self.navigationController popToRootViewControllerAnimated:YES];
+        
+        
+    }else{
+        NSLog(@"号码不满足");
+        
+    }
+ 
+
+}
+
+#pragma mark textFieldDelegate
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
+    NSString *checkString;
+    
+    if (range.location == 11) {
+        
+        return NO;
+    
+    }else{
+        
+        if (![string isEqualToString:@""]) {
+            
+            checkString=[tf1.text stringByAppendingString:string];
+        
+        }else{
+            
+            checkString=[checkString stringByDeletingLastPathComponent];
+        
+        }
+        
+        if ([self isMobileNumber:checkString]) {
+            
+            NSLog(@"号码满足");
+            NSLog(@"checkStr:%@",checkString);
+        
+        
+        }else{
+            NSLog(@"号码不满足");
+        
+        }
+        
+        return YES;
+    
+    }
+
+}
+
+- (BOOL)isMobileNumber:(NSString *)mobileNum{
+    
+    //手机号以13， 15，18开头，八个 \d 数字字符
+    NSString *phoneRegex = @"^((13[0-9])|(17[0-9])|(15[^4,\\D])|(18[0,0-9]))\\d{8}$";
+    NSPredicate *phoneTest = [NSPredicate predicateWithFormat:@"SELF MATCHES %@",phoneRegex];
+    //    NSLog(@"phoneTest is %@",phoneTest);
+    return [phoneTest evaluateWithObject:mobileNum];
+
+}
+
 /*
 #pragma mark - Navigation
 

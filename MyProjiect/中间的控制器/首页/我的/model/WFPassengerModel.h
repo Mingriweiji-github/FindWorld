@@ -6,8 +6,13 @@
 //  Copyright © 2016年 imac. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import "BaseModel.h"
 
-@interface WFPassengerModel : NSObject
+@interface WFPassengerModel : BaseModel
+
+@property(nonatomic,copy)NSString *name;
+@property(nonatomic,copy)NSString *age;
+@property(nonatomic,copy)NSString *phone;
+@property(nonatomic,copy)NSString *identi;
 
 @end

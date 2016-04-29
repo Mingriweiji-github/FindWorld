@@ -8,9 +8,14 @@
 
 #import "PersonViewController.h"
 #import "LogInViewController.h"
+
+#import "PassengerViewController.h"
+#import "SSKeychain.h"
 @interface PersonViewController ()
 {
     UIImageView *_headerView;
+    UILabel *label;
+    NSString *password;
 }
 @end
 
@@ -20,11 +25,11 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    self.navigationController.navigationBarHidden=YES;//隐藏导航栏
+    self.navigationController.navigationBarHidden=NO;//隐藏导航栏
     //初始化表视图
     [self _initViews];
     //数据
-    self.data = @[@[@"我的订单",@"我的优惠"],@[@"常用旅客信息",@"常用联系人"]];
+    self.data = @[@[@"我的订单",@"我的优惠"],@[@"常用旅客信息"]];
     
     
     
@@ -46,20 +51,95 @@
     _headerView.userInteractionEnabled = YES;
     UIButton *userBtn=[UIButton buttonWithType:UIButtonTypeCustom];
     userBtn.tag=100;
-    userBtn.frame=CGRectMake(kScreenWidth / 2 - 30, 30, 75, 75);
+    userBtn.frame=CGRectMake(kScreenWidth / 2 - 40*KWidth_Scale , 30*KWidth_Scale, 75*KWidth_Scale, 75*KWidth_Scale);
     
     [userBtn addTarget:self action:@selector(denglu:) forControlEvents:UIControlEventTouchUpInside];
-//    userBtn.backgroundColor=[UIColor purpleColor];
     [userBtn setBackgroundImage:[UIImage imageNamed:@"a.jpg"] forState:UIControlStateNormal];
     [_headerView addSubview:userBtn];
-    //点击登录提示
-    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(kScreenWidth / 2-50, userBtn.bottom, 200, 20)];
+    //用户名点击登录提示
+    label = [[UILabel alloc] initWithFrame:CGRectMake(userBtn.left-10, userBtn.bottom+10*KWidth_Scale, 150*KWidth_Scale, 20)];
     label.textColor=[UIColor whiteColor];
     label.font=[UIFont boldSystemFontOfSize:15];
-    label.text=@"点击登录，体验更多";
+    
+    label.userInteractionEnabled = YES;
+    //手势
+    UITapGestureRecognizer *gasture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(denglu:)];
+    gasture.delegate = self;
+    gasture.numberOfTapsRequired = 1;
+    gasture.numberOfTouchesRequired = 1;
+    
+    [label addGestureRecognizer:gasture];
+  
+    
+    
+
+    
+    label.text=@"点击头像登录";
+    
     [_headerView addSubview:label];
     _tableView.tableHeaderView = _headerView;
     
+   
+        
+        NSString *pw = [SSKeychain passwordForService:KeyPassWord account:Keychain_account];
+        NSString *phoneNum =[SSKeychain passwordForService:KeyName account:Keychain_account];//用户名
+        NSLog(@"钥匙串  phone :%@ pw:%@",phoneNum,pw);
+        if (phoneNum) {
+            
+            label.text = phoneNum;
+            
+        
+    }
+   
+    
+    
+}
+
+- (BOOL)isMobileNumber:(NSString *)mobileNum{
+    
+    //手机号以13， 15，18开头，八个 \d 数字字符
+    NSString *phoneRegex = @"^((13[0-9])|(17[0-9])|(15[^4,\\D])|(18[0,0-9]))\\d{8}$";
+    NSPredicate *phoneTest = [NSPredicate predicateWithFormat:@"SELF MATCHES %@",phoneRegex];
+    //    NSLog(@"phoneTest is %@",phoneTest);
+    return [phoneTest evaluateWithObject:mobileNum];
+    
+}
+- (void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:KUserNameSuccess object:nil];
+}
+- (void)viewWillAppear:(BOOL)animated{
+
+    [super viewWillAppear:animated];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(getUserNameSuccess:) name:KUserNameSuccess object:nil];
+    
+}
+
+-(void) getUserNameSuccess:(NSNotification *)notify
+{
+    NSLog(@"输入最新 notify ;%@",notify.object);
+
+    NSDictionary *mDic = notify.object;
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:KUserNameSuccess object:nil];
+    NSLog(@"ci输入name:%@ passWord：%@",[mDic objectForKey:@"name"],[mDic objectForKey:@"passWord"]);
+    
+    
+    if ([mDic objectForKey:@"name"]) {
+        
+     label.text = [mDic objectForKey:@"name"];
+        NSError *error;
+        BOOL  name= [SSKeychain setPassword:[mDic objectForKey:@"name"] forService:KeyName account:Keychain_account  error:&error];
+                     BOOL  passW= [SSKeychain setPassword:[mDic objectForKey:@"passWord"] forService:KeyPassWord account:Keychain_account  error:&error];
+        
+                    if (name) {
+                        NSLog(@"钥匙串用户名已经保存成功");
+                    }if (passW) {
+                        NSLog(@"钥匙串密码保存成功");
+                    }
+
+    }
+
 }
 
 #pragma mark 点击登录
@@ -77,7 +157,13 @@
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return self.data.count;
+    if (section == 0) {
+        return 2;
+    }else{
+    
+        return 1;
+    }
+    return 0;
     
 }
 
@@ -107,10 +193,9 @@
     }
     if (indexPath.section ==1 && indexPath.row == 0) {
         NSLog(@"常用旅客");
-        
-        
-    } if (indexPath.section == 1 && indexPath.row == 1) {
-        NSLog(@"常用联系人");
+        PassengerViewController *fw = [[PassengerViewController alloc] init];
+        [self.navigationController pushViewController:fw animated:YES];
+//        [self.navigationController presentViewController:fw animated:YES completion:nil];
     }
 }
 /*

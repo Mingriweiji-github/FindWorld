@@ -7,8 +7,9 @@
 //
 
 #import "AppDelegate.h"
+#import "RootDrawerController.h"
 #import "UMSocial.h"
-
+#import "WFFirstOpenView.h"
 @interface AppDelegate ()
 
 @end
@@ -23,7 +24,13 @@
     [UMSocialData setAppKey:@"56178027e0f55ac9f3003b9c"];
     //第三发登录
     [UMSocialSnsService applicationDidBecomeActive];
+
+//    application.statusBarHidden = NO;
+//    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+//    
+//    [self.window makeKeyAndVisible];
     
+
     
     return YES;
 }

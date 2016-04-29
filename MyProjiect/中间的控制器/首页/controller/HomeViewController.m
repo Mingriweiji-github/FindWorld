@@ -15,6 +15,7 @@
 #import "JingxuanModel.h"
 #import "MJRefresh.h"
 #import "SearchViewController.h"
+#import "WFFirstOpenView.h"
 @interface HomeViewController ()
 {
     UIPageControl *pageCtrl;
@@ -48,7 +49,8 @@
     //开启加载提示
     [self showHud:@"拼命加载..."];
     
-    
+
+
     
     
 }
