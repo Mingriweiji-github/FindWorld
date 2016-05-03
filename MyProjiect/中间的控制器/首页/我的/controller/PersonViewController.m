@@ -41,7 +41,7 @@
     _tableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStyleGrouped];
     _tableView.delegate=self;
     _tableView.dataSource=self;
-    
+    _tableView.bounces = NO;
     [self.view addSubview:_tableView];
     //头部视图
     UIImage *image=[UIImage imageNamed:@"LastMinute_TitleBar_320"];

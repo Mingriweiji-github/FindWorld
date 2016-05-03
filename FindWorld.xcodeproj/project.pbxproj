@@ -26,9 +26,10 @@
 		57145D6C1CD20C090062732F /* SSKeychain.m in Sources */ = {isa = PBXBuildFile; fileRef = 57145D681CD20C090062732F /* SSKeychain.m */; };
 		57145D6D1CD20C090062732F /* SSKeychainQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = 57145D6A1CD20C090062732F /* SSKeychainQuery.m */; };
 		57145D701CD30CDC0062732F /* WFFirstOpenView.m in Sources */ = {isa = PBXBuildFile; fileRef = 57145D6F1CD30CDC0062732F /* WFFirstOpenView.m */; };
-		57145D751CD30E030062732F /* 1.png in Resources */ = {isa = PBXBuildFile; fileRef = 57145D721CD30E030062732F /* 1.png */; };
-		57145D761CD30E030062732F /* 2.png in Resources */ = {isa = PBXBuildFile; fileRef = 57145D731CD30E030062732F /* 2.png */; };
-		57145D7B1CD337B60062732F /* 3.png in Resources */ = {isa = PBXBuildFile; fileRef = 57145D7A1CD337B60062732F /* 3.png */; };
+		57145D7F1CD376540062732F /* 1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 57145D7C1CD376540062732F /* 1@2x.png */; };
+		57145D801CD376540062732F /* 2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 57145D7D1CD376540062732F /* 2@2x.png */; };
+		57145D811CD376540062732F /* 3@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 57145D7E1CD376540062732F /* 3@2x.png */; };
+		573515351CD88025007A6E9B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 573515341CD88025007A6E9B /* Images.xcassets */; };
 		8865C5721BBABCA00039823A /* TypeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8865C5711BBABCA00039823A /* TypeModel.m */; };
 		8899F9F91BB6954A003B063A /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8899F9F61BB6954A003B063A /* HomeViewController.m */; };
 		8899FA081BB69607003B063A /* GroupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8899FA071BB69607003B063A /* GroupViewController.m */; };
@@ -353,9 +354,10 @@
 		57145D6A1CD20C090062732F /* SSKeychainQuery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SSKeychainQuery.m; path = ../SSKeychainQuery.m; sourceTree = "<group>"; };
 		57145D6E1CD30CDC0062732F /* WFFirstOpenView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WFFirstOpenView.h; sourceTree = "<group>"; };
 		57145D6F1CD30CDC0062732F /* WFFirstOpenView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WFFirstOpenView.m; sourceTree = "<group>"; };
-		57145D721CD30E030062732F /* 1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1.png; sourceTree = "<group>"; };
-		57145D731CD30E030062732F /* 2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 2.png; sourceTree = "<group>"; };
-		57145D7A1CD337B60062732F /* 3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 3.png; sourceTree = "<group>"; };
+		57145D7C1CD376540062732F /* 1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "1@2x.png"; sourceTree = "<group>"; };
+		57145D7D1CD376540062732F /* 2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "2@2x.png"; sourceTree = "<group>"; };
+		57145D7E1CD376540062732F /* 3@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "3@2x.png"; sourceTree = "<group>"; };
+		573515341CD88025007A6E9B /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = FindWorld/Images.xcassets; sourceTree = "<group>"; };
 		8865C5701BBABCA00039823A /* TypeModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TypeModel.h; sourceTree = "<group>"; };
 		8865C5711BBABCA00039823A /* TypeModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TypeModel.m; sourceTree = "<group>"; };
 		8899F9F51BB6954A003B063A /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
@@ -837,9 +839,9 @@
 		57145D711CD30CED0062732F /* 启动页 */ = {
 			isa = PBXGroup;
 			children = (
-				57145D721CD30E030062732F /* 1.png */,
-				57145D731CD30E030062732F /* 2.png */,
-				57145D7A1CD337B60062732F /* 3.png */,
+				57145D7C1CD376540062732F /* 1@2x.png */,
+				57145D7D1CD376540062732F /* 2@2x.png */,
+				57145D7E1CD376540062732F /* 3@2x.png */,
 				57145D6E1CD30CDC0062732F /* WFFirstOpenView.h */,
 				57145D6F1CD30CDC0062732F /* WFFirstOpenView.m */,
 			);
@@ -1498,6 +1500,7 @@
 		88E0E1C41BB633280047CC23 = {
 			isa = PBXGroup;
 			children = (
+				573515341CD88025007A6E9B /* Images.xcassets */,
 				57145D651CD2069B0062732F /* Security.framework */,
 				57145D111CCA24310062732F /* libsqlite3.tbd */,
 				88E0E1CF1BB633280047CC23 /* MyProjiect */,
@@ -1791,6 +1794,7 @@
 				88C7A6F51BB68DDA0039F526 /* User_Guide_Glass.png in Resources */,
 				88C5EA561BBA42DE00CE38F6 /* FlightCollectionViewCell.xib in Resources */,
 				88C788FF1BC0C5F9009C8AA5 /* 租车.json in Resources */,
+				573515351CD88025007A6E9B /* Images.xcassets in Resources */,
 				88C7A6E51BB68DDA0039F526 /* loading50－11.png in Resources */,
 				88C5B26D1BC20DB5002C2BEA /* 大洋洲全部.json in Resources */,
 				889CEF191BB904C400273DE5 /* back_pic.jpg in Resources */,
@@ -1813,7 +1817,6 @@
 				889CEF181BB904C400273DE5 /* 5.jpg in Resources */,
 				88C7A69A1BB67CF80039F526 /* AppIcon60x60@3x.png in Resources */,
 				889CEF151BB904C400273DE5 /* 2.jpg in Resources */,
-				57145D761CD30E030062732F /* 2.png in Resources */,
 				57145C7F1CC790790062732F /* back-icon@3x.png in Resources */,
 				88C7A6831BB673A20039F526 /* more_account3.png in Resources */,
 				88D148941BC7BAA800708F62 /* UMSLoginViewController.xib in Resources */,
@@ -1828,7 +1831,6 @@
 				88C7A6F31BB68DDA0039F526 /* loading50－8.png in Resources */,
 				88C7A6F41BB68DDA0039F526 /* loading50－9.png in Resources */,
 				88C7A6DC1BB68DDA0039F526 /* loading160-3.png in Resources */,
-				57145D751CD30E030062732F /* 1.png in Resources */,
 				88C7890D1BC0D2F1009C8AA5 /* 保险.json in Resources */,
 				88C7A6E01BB68DDA0039F526 /* loading160-7.png in Resources */,
 				88C7A6961BB67CF80039F526 /* AppIcon29x29@3x.png in Resources */,
@@ -1856,7 +1858,7 @@
 				88EA54E21BC3BA4F008DB497 /* a.jpg in Resources */,
 				88C7A66D1BB671960039F526 /* home_tab_icon_3_3@2x.png in Resources */,
 				88C5EA601BBA674900CE38F6 /* 223.png in Resources */,
-				57145D7B1CD337B60062732F /* 3.png in Resources */,
+				57145D7F1CD376540062732F /* 1@2x.png in Resources */,
 				88C788FD1BC0C5F9009C8AA5 /* 机票.json in Resources */,
 				88C7A6731BB671960039F526 /* more_icon_draft@2x.png in Resources */,
 				88C788FB1BC0C5F9009C8AA5 /* 分类.json in Resources */,
@@ -1882,6 +1884,7 @@
 				88C789001BC0C5F9009C8AA5 /* 签证.json in Resources */,
 				57145C7D1CC790790062732F /* back-icon.png in Resources */,
 				88D8AEF51BC29FB100D9892F /* 37x-Checkmark@2x.png in Resources */,
+				57145D811CD376540062732F /* 3@2x.png in Resources */,
 				57145C7E1CC790790062732F /* back-icon@2x.png in Resources */,
 				88C788FE1BC0C5F9009C8AA5 /* 机票1.json in Resources */,
 				88C7A6811BB671960039F526 /* titlebar_button_back_9@2x.png in Resources */,
@@ -1920,6 +1923,7 @@
 				88C5B26F1BC20DB5002C2BEA /* 斐济.json in Resources */,
 				889CEF1A1BB904C400273DE5 /* search_pic.jpg in Resources */,
 				88C7A6D51BB68DDA0039F526 /* loading160-12.png in Resources */,
+				57145D801CD376540062732F /* 2@2x.png in Resources */,
 				88C789021BC0C5F9009C8AA5 /* 邮轮.json in Resources */,
 				88C91B481BC50E4900D575B4 /* 16年5月.json in Resources */,
 				88C7A6E71BB68DDA0039F526 /* loading50－13.png in Resources */,
@@ -2227,6 +2231,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COMPRESS_PNG_FILES = NO;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/MyProjiect/qiongyou.pch";
 				GCC_PREPROCESSOR_DEFINITIONS_NOT_USED_IN_PRECOMPS = "";
 				INFOPLIST_FILE = MyProjiect/Info.plist;
@@ -2247,6 +2252,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COMPRESS_PNG_FILES = NO;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/MyProjiect/qiongyou.pch";
 				GCC_PREPROCESSOR_DEFINITIONS_NOT_USED_IN_PRECOMPS = "";
 				INFOPLIST_FILE = MyProjiect/Info.plist;

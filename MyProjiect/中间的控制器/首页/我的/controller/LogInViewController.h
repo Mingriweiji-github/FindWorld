@@ -8,6 +8,6 @@
 
 #import "BaseViewController.h"
 #import "UMSocial.h"
-@interface LogInViewController : BaseViewController<UITextFieldDelegate,UMSocialUIDelegate>
+@interface LogInViewController : BaseViewController<UITextFieldDelegate,UMSocialUIDelegate,UIAlertViewDelegate>
 
 @end

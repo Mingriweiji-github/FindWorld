@@ -47,7 +47,7 @@
     label.textColor=[UIColor whiteColor];
     [self.view addSubview:label];
     //用户名
-    tf1 = [[UITextField alloc] initWithFrame:CGRectMake(100, 160, 200, 30)];
+    tf1 = [[UITextField alloc] initWithFrame:CGRectMake(75*KWidth_Scale, 160, 200, 30)];
     [tf1 setBorderStyle:UITextBorderStyleRoundedRect];
     tf1.placeholder=@"输入手机号/用户名";
     tf1.clearButtonMode=UITextFieldViewModeWhileEditing;
@@ -55,7 +55,7 @@
     [tf1 becomeFirstResponder];
     [self.view addSubview:tf1];
     //密码
-    passwordTF = [[UITextField alloc] initWithFrame:CGRectMake(100, 200, 200, 30)];
+    passwordTF = [[UITextField alloc] initWithFrame:CGRectMake(75*KWidth_Scale, 200, 200, 30)];
     [passwordTF setBorderStyle:UITextBorderStyleRoundedRect];
     passwordTF.placeholder=@"输入密码(纯数字)";
     passwordTF.autocapitalizationType = UITextAutocapitalizationTypeNone;
@@ -205,6 +205,8 @@
         }else{
         
             NSLog(@"不是第一次");
+            
+        
         }
         
         
@@ -214,6 +216,10 @@
         
     }else{
         NSLog(@"号码不满足");
+        
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"输入手机号码不符" message:@"请重新输入" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
+        
+        [alert show];
         
     }
  
