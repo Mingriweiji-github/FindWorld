@@ -73,7 +73,7 @@
 
     //下拉刷新
 //    [_tableView  addHeaderWithTarget:self action:@selector(headerRereshing)];
-    //上拉刷新
+//    上拉刷新
 //    [_tableView addFooterWithTarget:self action:@selector(footerRereshing)];
 
 

@@ -266,7 +266,7 @@
                   moduleName = "FindWorld"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/Mr_Li/Desktop/FindWorld/MyProjiect/%E4%B8%AD%E9%97%B4%E7%9A%84%E6%8E%A7%E5%88%B6%E5%99%A8/%E9%A6%96%E9%A1%B5/%E6%88%91%E7%9A%84/controller/LogInViewController.m"
-                  timestampString = "483937776.294654"
+                  timestampString = "484024478.093732"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "205"
@@ -281,7 +281,7 @@
                   moduleName = "FindWorld"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/Mr_Li/Desktop/FindWorld/MyProjiect/%E4%B8%AD%E9%97%B4%E7%9A%84%E6%8E%A7%E5%88%B6%E5%99%A8/%E9%A6%96%E9%A1%B5/%E6%88%91%E7%9A%84/controller/LogInViewController.m"
-                  timestampString = "483937776.294892"
+                  timestampString = "484024478.093882"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "205"
@@ -304,6 +304,22 @@
             startingLineNumber = "70"
             endingLineNumber = "70"
             landmarkName = "-removeOpenView:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MyProjiect/&#x4e2d;&#x95f4;&#x7684;&#x63a7;&#x5236;&#x5668;/&#x9996;&#x9875;/controller/HomeViewController.m"
+            timestampString = "484023543.595427"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "108"
+            endingLineNumber = "108"
+            landmarkName = "-footerRereshing"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

@@ -33,13 +33,13 @@
 
     
     //增加游客信息
-    UIButton *add = [UIButton buttonWithType:UIButtonTypeContactAdd];
-    add.frame = CGRectMake(kScreenWidth / 2 -50*KWidth_Scale, 0 , 150*KWidth_Scale, 20);
-    [add setTitle:@"新建账号" forState:UIControlStateNormal];
-    [add addTarget:self action:@selector(editBtnClick:) forControlEvents:UIControlEventTouchUpInside];
-    
-    [self.view addSubview:add];
-    
+//    UIButton *add = [UIButton buttonWithType:UIButtonTypeContactAdd];
+//    add.frame = CGRectMake(kScreenWidth / 2 -50*KWidth_Scale, 0 , 150*KWidth_Scale, 20);
+//    [add setTitle:@"新建账号" forState:UIControlStateNormal];
+//    [add addTarget:self action:@selector(editBtnClick:) forControlEvents:UIControlEventTouchUpInside];
+//    
+//    [self.view addSubview:add];
+//    
     _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 20, kScreenWidth, kScreenHeight - 44 - 20) style:UITableViewStylePlain];
     self.tableView.delegate =self;
     self.tableView.dataSource = self;
