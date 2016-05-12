@@ -29,7 +29,7 @@
     //初始化表视图
     [self _initViews];
     //数据
-    self.data = @[@[@"我的订单",@"我的优惠"],@[@"浏览记录"]];
+    self.data = @[@[@"我的订单",@"我的优惠"],@[@"常用旅客",@"退出"]];
     
     
     
@@ -80,17 +80,20 @@
     _tableView.tableHeaderView = _headerView;
     
    
-        
-        NSString *pw = [SSKeychain passwordForService:KeyPassWord account:Keychain_account];
-        NSString *phoneNum =[SSKeychain passwordForService:KeyName account:Keychain_account];//用户名
-        NSLog(@"钥匙串  phone :%@ pw:%@",phoneNum,pw);
-        if (phoneNum) {
-            
-            label.text = phoneNum;
-            
-        
+    
+//        NSString *pw = [SSKeychain passwordForService:KeyPassWord account:Keychain_account];
+//        NSString *phoneNum =[SSKeychain passwordForService:KeyName account:Keychain_account];//用户名
+//        NSLog(@"钥匙串  phone :%@ pw:%@",phoneNum,pw);
+//        if (phoneNum) {
+//            
+//            label.text = phoneNum;
+//            
+//        
+//    }
+    NSString *phone = [[NSUserDefaults standardUserDefaults] objectForKey:@"PhoneNum"];
+    if (phone) {
+        label.text = phone;
     }
-   
     
     
 }
@@ -127,16 +130,17 @@
     
     if ([mDic objectForKey:@"name"]) {
         
-     label.text = [mDic objectForKey:@"name"];
-        NSError *error;
-        BOOL  name= [SSKeychain setPassword:[mDic objectForKey:@"name"] forService:KeyName account:Keychain_account  error:&error];
-                     BOOL  passW= [SSKeychain setPassword:[mDic objectForKey:@"passWord"] forService:KeyPassWord account:Keychain_account  error:&error];
+        label.text = [mDic objectForKey:@"name"];
         
-                    if (name) {
-                        NSLog(@"钥匙串用户名已经保存成功");
-                    }if (passW) {
-                        NSLog(@"钥匙串密码保存成功");
-                    }
+//        NSError *error;
+//        BOOL  name= [SSKeychain setPassword:[mDic objectForKey:@"name"] forService:KeyName account:Keychain_account  error:&error];
+//                     BOOL  passW= [SSKeychain setPassword:[mDic objectForKey:@"passWord"] forService:KeyPassWord account:Keychain_account  error:&error];
+//        
+//                    if (name) {
+//                        NSLog(@"钥匙串用户名已经保存成功");
+//                    }if (passW) {
+//                        NSLog(@"钥匙串密码保存成功");
+//                    }
 
     }
 
@@ -157,13 +161,13 @@
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    if (section == 0) {
-        return 2;
-    }else{
-    
-        return 1;
-    }
-    return 0;
+//    if (section == 0) {
+//        return 2;
+//    }else{
+//    
+//        return 1;
+//    }
+    return 2;
     
 }
 
@@ -195,7 +199,15 @@
         NSLog(@"常用旅客");
         PassengerViewController *fw = [[PassengerViewController alloc] init];
         [self.navigationController pushViewController:fw animated:YES];
-//        [self.navigationController presentViewController:fw animated:YES completion:nil];
+    }if (indexPath.section ==1 && indexPath.row == 1) {
+        NSLog(@"退出");
+        BOOL isOut= [SSKeychain setPassword:@"" forService:KeyName account:Keychain_account];
+        if (isOut) {
+            
+            label.text = [SSKeychain passwordForService:KeyName account:Keychain_account];
+        }
+        
+
     }
 }
 /*

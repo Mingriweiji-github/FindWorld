@@ -192,7 +192,7 @@
             [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"firstLogIN"];
             NSLog(@"第一次");
             
-            NSError *error=nil;
+//            NSError *error=nil;
 ////            BOOL  name= [SSKeychain setPassword:[NSString stringWithFormat:@"%@",tf1.text] forService:KeyName account:Keychain_account  error:&error];
 ////             BOOL  password= [SSKeychain setPassword:passwordTF.text forService:KeyPassWord account:Keychain_account  error:&error];
 //            if (name) {
@@ -200,6 +200,8 @@
 //            }if (password) {
 //                NSLog(@"钥匙串密码保存成功");
 //            }
+            
+            [[NSUserDefaults standardUserDefaults] setObject:tf1.text forKey:@"PhoneNum"];
 
 
         }else{
