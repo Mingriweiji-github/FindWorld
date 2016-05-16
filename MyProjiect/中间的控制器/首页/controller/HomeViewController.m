@@ -294,6 +294,8 @@
                  finishDidBlock:^(AFHTTPRequestOperation *operation, id result) {
                      
                      NSDictionary *myData = result[@"data"];
+//                     NSLog(@"data: %@",myData);
+                     
                      NSArray *slide = [myData objectForKey:@"slide"];
                      for (NSDictionary *dic in slide) {
 
@@ -454,7 +456,7 @@
                            
                            NSMutableArray *mArr=[NSMutableArray array];
                            NSArray *data = result[@"data"];
-                           
+                           NSLog(@"分类：%@",data);
                            for (NSDictionary *dic in data) {
                                
                                JingxuanModel *model=[[JingxuanModel alloc] initContentWithDic:dic];

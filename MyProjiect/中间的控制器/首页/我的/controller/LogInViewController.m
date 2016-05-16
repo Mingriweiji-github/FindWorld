@@ -10,6 +10,7 @@
 #import "ZhuceViewController.h"
 //#import "UMSocial.h"
 #import "SSKeychain.h"
+#import "PersonViewController.h"
 @interface LogInViewController ()
 {
     UITextField *tf1;
@@ -127,7 +128,7 @@
             
             
 //            [[NSUserDefaults standardUserDefaults] setObject:snsAccount.userName forKey:KUserName];
-            [[NSNotificationCenter defaultCenter] postNotificationName:KUserNameSuccess object:snsAccount.userName];
+            [[NSNotificationCenter defaultCenter] postNotificationName:KSinaName object:snsAccount.userName];
             
             
         }});
@@ -139,7 +140,10 @@
     [[UMSocialDataService defaultDataService] requestSnsInformation:UMShareToSina  completion:^(UMSocialResponseEntity *response){
         NSLog(@"SnsInformation is %@",response.data);
         
-        [self.navigationController popToRootViewControllerAnimated:YES];
+//        [self.navigationController popToRootViewControllerAnimated:YES];
+//        [self dismissViewControllerAnimated:YES completion:nil];
+        [self.navigationController popToViewController:[[PersonViewController alloc] init] animated:YES];
+
 
     }];
     
@@ -191,15 +195,7 @@
         if (![[NSUserDefaults standardUserDefaults] objectForKey:@"firstLogIN"]) {
             [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"firstLogIN"];
             NSLog(@"第一次");
-            
-//            NSError *error=nil;
-////            BOOL  name= [SSKeychain setPassword:[NSString stringWithFormat:@"%@",tf1.text] forService:KeyName account:Keychain_account  error:&error];
-////             BOOL  password= [SSKeychain setPassword:passwordTF.text forService:KeyPassWord account:Keychain_account  error:&error];
-//            if (name) {
-//                NSLog(@"钥匙串用户名已经保存成功");
-//            }if (password) {
-//                NSLog(@"钥匙串密码保存成功");
-//            }
+
             
             [[NSUserDefaults standardUserDefaults] setObject:tf1.text forKey:@"PhoneNum"];
 

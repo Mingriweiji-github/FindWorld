@@ -21,6 +21,7 @@
 #define FontHT(s)            [UIFont fontWithName:@"Heiti SC" size:s]  //黑体宏定义
 #define KUserName @"KUserName"
 #define KUserNameSuccess @"getUserNameSuccess"
+#define KSinaName @"KSinaName"
 #define KPassWord @"KPassWord"
 #define KeyName @"Keyname"
 #define KeyPassWord @"KeyPassWord"

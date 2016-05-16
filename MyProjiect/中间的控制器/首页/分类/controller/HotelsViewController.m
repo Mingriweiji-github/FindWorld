@@ -434,7 +434,7 @@
         
     }else if (tableView == _timeTabelV){
         
-        return _timeData.count;
+        return 5;
         
     }else if (tableView == _detailTableView){
         
@@ -610,12 +610,19 @@
         NSMutableArray *mArr=[NSMutableArray array];
         NSDictionary *data=[json objectForKey:@"data"];
         NSArray *lastminutes = [data objectForKey:@"lastminutes"];
+        
+        if (data.count ==0 || lastminutes.count == 0) {
+            return;
+        }
         for (NSDictionary *dic in lastminutes) {
             TicketModel *model=[[TicketModel alloc] initContentWithDic:dic];
             [mArr addObject:model];
             
         }
         _data=mArr;
+        if (_data.count == 0 ) {
+            return;
+        }
         [_collectionView reloadData];//刷新UI
         
         UIButton *btn = (UIButton *)[view viewWithTag:13];

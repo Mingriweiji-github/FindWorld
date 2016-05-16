@@ -8,7 +8,7 @@
 
 #import "BaseViewController.h"
 
-@interface PersonViewController : BaseViewController<UITableViewDataSource,UITableViewDelegate,UIGestureRecognizerDelegate>
+@interface PersonViewController : BaseViewController<UITableViewDataSource,UITableViewDelegate,UIGestureRecognizerDelegate,UIAlertViewDelegate>
 
 @property(nonatomic,strong)UITableView *tableView;
 @property(nonatomic,strong)NSArray *data;

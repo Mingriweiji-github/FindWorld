@@ -95,7 +95,22 @@
         label.text = phone;
     }
     
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(getSinaUserName:) name:KSinaName object:nil];
+
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(getTextFieltName:) name:KUserNameSuccess object:nil];
     
+    
+    if (![label.text isEqualToString:@""]) {
+        
+        label.userInteractionEnabled = NO;
+        _headerView.userInteractionEnabled = NO;
+
+    }else{
+    
+        label.userInteractionEnabled = YES;
+        _headerView.userInteractionEnabled = YES;
+
+    }
 }
 
 - (BOOL)isMobileNumber:(NSString *)mobileNum{
@@ -115,40 +130,38 @@
 
     [super viewWillAppear:animated];
     
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(getUserNameSuccess:) name:KUserNameSuccess object:nil];
     
 }
 
--(void) getUserNameSuccess:(NSNotification *)notify
+-(void) getSinaUserName:(NSNotification *)notify
 {
     NSLog(@"输入最新 notify ;%@",notify.object);
+    
+    label.text = [NSString stringWithFormat:@"%@",notify.object];
 
-    NSDictionary *mDic = notify.object;
+
+    
     [[NSNotificationCenter defaultCenter] removeObserver:self name:KUserNameSuccess object:nil];
-    NSLog(@"ci输入name:%@ passWord：%@",[mDic objectForKey:@"name"],[mDic objectForKey:@"passWord"]);
-    
-    
-    if ([mDic objectForKey:@"name"]) {
-        
-        label.text = [mDic objectForKey:@"name"];
-        
-//        NSError *error;
-//        BOOL  name= [SSKeychain setPassword:[mDic objectForKey:@"name"] forService:KeyName account:Keychain_account  error:&error];
-//                     BOOL  passW= [SSKeychain setPassword:[mDic objectForKey:@"passWord"] forService:KeyPassWord account:Keychain_account  error:&error];
-//        
-//                    if (name) {
-//                        NSLog(@"钥匙串用户名已经保存成功");
-//                    }if (passW) {
-//                        NSLog(@"钥匙串密码保存成功");
-//                    }
 
-    }
 
 }
-
+- (void)getTextFieltName:(NSNotification *)notification
+{
+    NSLog(@"object:%@",notification.object);
+    if ([self isMobileNumber:[notification.object objectForKey:@"name"]]) {
+        label.text= [notification.object objectForKey:@"name"];
+    }else{
+    
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"请重新输入" message:@"手机号不对" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
+        [alert show];
+    }
+    
+    
+}
 #pragma mark 点击登录
 - (void)denglu:(UIButton *)btn
 {
+   
     LogInViewController *logVC=[[LogInViewController alloc] init];
     
     [self.navigationController pushViewController:logVC animated:YES];
@@ -201,12 +214,15 @@
         [self.navigationController pushViewController:fw animated:YES];
     }if (indexPath.section ==1 && indexPath.row == 1) {
         NSLog(@"退出");
-        BOOL isOut= [SSKeychain setPassword:@"" forService:KeyName account:Keychain_account];
-        if (isOut) {
-            
-            label.text = [SSKeychain passwordForService:KeyName account:Keychain_account];
-        }
+//        BOOL isOut= [SSKeychain setPassword:@"" forService:KeyName account:Keychain_account];
+//        if (isOut) {
+//            
+//            label.text = [SSKeychain passwordForService:KeyName account:Keychain_account];
+//        }
         
+        label.text = @"";
+        label.userInteractionEnabled = YES;
+        _headerView.userInteractionEnabled = YES;
 
     }
 }

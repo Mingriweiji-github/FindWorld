@@ -431,7 +431,7 @@
         
     }else if (tableView == _timeTabelV){
         
-        return _timeData.count;
+        return 5;
         
     }else if (tableView == _detailTableView){
         

@@ -331,7 +331,6 @@
 {
 //    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     NSDictionary *dict = @{@"ra_referer": @"app_lastminute_list"};
-//    NSDictionary *dict1 = @{@"lat": @"39.918111"};
     NSDictionary *dict2=@{@"page_size":@"10"};
     NSDictionary *dict3=@{@"page":@"1"};
     NSDictionary *dict4=@{@"product_type":@"1061"};
@@ -349,8 +348,10 @@
                       httpMethod:@"POST"
                           params:params
                 completionHandle:^(id result) {
-//                    NSLog(@"result is %@",result);
                     NSDictionary *data=result[@"data"];
+                    
+                                        NSLog(@"机票Iresult is %@",data);
+
                     NSArray *lastminutes = [data objectForKey:@"lastminutes"];
                     
                      NSMutableArray *mArr=[NSMutableArray array];
@@ -467,7 +468,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     if (tableView == _typeTableV) {
-        return _typeData.count;
+        return _typeData.count-1;
 
     }else if (tableView == _departTabelV){
     
@@ -479,7 +480,7 @@
     
     }else if (tableView == _timeTabelV){
         
-        return _timeData.count;
+        return 5;
         
     }else if (tableView == _detailTableView){
         
@@ -694,8 +695,17 @@
         NSMutableArray *mArr=[NSMutableArray array];
         NSDictionary *data=[json objectForKey:@"data"];
         NSArray *lastminutes = [data objectForKey:@"lastminutes"];
+        if (lastminutes.count==0) {
+            return;
+        }
+        
         for (NSDictionary *dic in lastminutes) {
+            
+           
             TicketModel *model=[[TicketModel alloc] initContentWithDic:dic];
+            if (model == nil) {
+                return;
+            }
             [mArr addObject:model];
             
         }

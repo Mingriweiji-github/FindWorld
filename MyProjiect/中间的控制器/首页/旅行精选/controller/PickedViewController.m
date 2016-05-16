@@ -42,7 +42,7 @@
     //请求数据
     [self requestData];
     //加载提示
-    [self showHud:@"加载ing..."];
+    [self showHud:@"加载中ing..."];
     
 }
 #pragma mark 初始化表视图
@@ -75,6 +75,8 @@
                completionHandle:^(id result) {
                   
                    NSArray *data = result[@"data"];
+                                        NSLog(@"精选data result is %@",data);
+
                    NSMutableArray *mArr=[NSMutableArray array];
                    
                    for (NSDictionary *dic in data) {

@@ -70,6 +70,7 @@
                          params:params
                completionHandle:^(id result) {
                    NSDictionary *data=result[@"data"];
+                   NSLog(@"精选详情：%@",data);
                    NSArray *lastminutes=[data objectForKey:@"lastminutes"];
                    NSMutableArray *mArr=[NSMutableArray array];
                    for (NSDictionary *dic in lastminutes) {
